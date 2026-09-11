@@ -1,22 +1,23 @@
 const CONFIG={whatsapp:'62816951127',storageKey:'27mart-cart-v1'};
 let products=[],cart=loadCart(),activeCategory='mobile',activeProvider='all',searchTerm='',sortMode='default';
-const logoBase='https://cdn.simpleicons.org/';
+const walletLogoBase='https://cdn.jsdelivr.net/npm/idn-finlogos@2/dist/icons/';
+const simpleLogo=(slug)=>`https://cdn.simpleicons.org/${slug}`;
 const providerMeta={
- Telkomsel:{mark:'TELKOMSEL',class:'telkomsel',logo:logoBase+'telkomsel'},
- 'by.U':{mark:'by.U',class:'byu',logo:logoBase+'byu'},
- IM3:{mark:'IM3',class:'im3',logo:logoBase+'im3'},
- Tri:{mark:'3',class:'tri',logo:logoBase+'tri'},
- XL:{mark:'XL',class:'xl',logo:logoBase+'xl'},
- AXIS:{mark:'AXIS',class:'axis',logo:logoBase+'axis'},
- Smartfren:{mark:'smartfren.',class:'smartfren',logo:logoBase+'smartfren'},
- 'Live.On':{mark:'LIVE.ON',class:'liveon',logo:logoBase+'liveon'},
- PLN:{mark:'PLN',class:'pln',logo:logoBase+'pln'},
- WiFi:{mark:'WiFi',class:'wifi',logo:logoBase+'wifi'},
- DANA:{mark:'DANA',class:'dana',logo:logoBase+'dana'},
- GoPay:{mark:'GoPay',class:'gopay',logo:logoBase+'gopay'},
- OVO:{mark:'OVO',class:'ovo',logo:logoBase+'ovo'},
- ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:logoBase+'shopeepay'},
- LinkAja:{mark:'LinkAja',class:'linkaja',logo:logoBase+'linkaja'}
+  Telkomsel:{mark:'TELKOMSEL',class:'telkomsel',logo:simpleLogo('telkomsel')},
+  'by.U':{mark:'by.U',class:'byu',logo:simpleLogo('byu')},
+  IM3:{mark:'IM3',class:'im3',logo:simpleLogo('im3')},
+  Tri:{mark:'3',class:'tri',logo:simpleLogo('3')},
+  XL:{mark:'XL',class:'xl',logo:simpleLogo('xl')},
+  AXIS:{mark:'AXIS',class:'axis',logo:simpleLogo('axis')},
+  Smartfren:{mark:'smartfren',class:'smartfren',logo:simpleLogo('smartfren')},
+  'Live.On':{mark:'LIVE.ON',class:'liveon',logo:simpleLogo('liveon')},
+  PLN:{mark:'PLN',class:'pln',logo:simpleLogo('pln')},
+  WiFi:{mark:'WiFi',class:'wifi',icon:'📶'},
+  DANA:{mark:'DANA',class:'dana',logo:walletLogoBase+'dana.svg'},
+  GoPay:{mark:'GoPay',class:'gopay',logo:walletLogoBase+'gopay.svg'},
+  OVO:{mark:'OVO',class:'ovo',logo:walletLogoBase+'ovo.svg'},
+  ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:walletLogoBase+'shopee-pay.svg'},
+  LinkAja:{mark:'LinkAja',class:'linkaja',logo:walletLogoBase+'linkaja.svg'}
 };
 const categories=[['mobile','PULSA'],['data-voucher','PAKET DATA & VOUCHER'],['ewallet','E-WALLET'],['utility','PLN & WIFI']];
 const allowedCategories=new Set(categories.map(x=>x[0]));
@@ -34,11 +35,11 @@ function sorted(a){a=[...a];if(sortMode==='cheap')a.sort((x,y)=>x.price-y.price)
 function renderCategories(){const e=document.querySelector('#categoryChips');if(!e)return;e.innerHTML=categories.map(c=>`<button class="chip ${activeCategory===c[0]?'active':''}" data-cat="${c[0]}">${c[1]}</button>`).join('');e.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{activeCategory=b.dataset.cat;activeProvider='all';render()})}
 function esc(s){return String(s).replace(/[&<>'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]))}
 function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-')}
-function logo(meta){if(meta.logo)return`<span class="provider-logo ${meta.class} wallet-logo-real"><img src="${meta.logo}" alt="Logo ${esc(meta.mark)}" loading="eager" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/${slug(meta.mark)}.svg'}else{this.style.display='none'}"></span>`;return`<span class="provider-logo ${meta.class}"><span class="brand-icon">${esc(meta.mark||'✦')}</span></span>`}
-function render(){renderCategories();const arr=sorted(visible()),groups=[...new Set(arr.map(p=>p.provider))],g=document.querySelector('#catalog'),t=document.querySelector('#catalogTitle'),c=document.querySelector('#resultCount');if(t)t.textContent=categoryTitles[activeCategory];if(c)c.textContent=`${arr.length} produk · ${groups.length} layanan`;if(!g)return;if(!arr.length){g.innerHTML='<div class="empty">Belum ada produk pada kategori ini.</div>';return}g.innerHTML=groups.map(pr=>{const items=arr.filter(p=>p.provider===pr),m=providerMeta[pr]||{mark:pr.slice(0,8).toUpperCase(),class:'generic',logo:logoBase+'generic'};return`<article class="provider-card"><button class="provider-head" type="button" aria-expanded="false">${logo(m)}<span class="provider-copy"><b>${esc(pr)}</b><small>${items.length} produk · mulai ${rp(Math.min(...items.map(x=>x.price)))}</small></span><span class="chevron">›</span></button><div class="provider-products">${items.map(row).join('')}</div></article>`}).join('');g.querySelectorAll('.provider-head').forEach(b=>b.onclick=()=>{const card=b.parentElement;card.classList.toggle('open');b.setAttribute('aria-expanded',card.classList.contains('open'))});g.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>openDetail(b.dataset.buy));g.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>addToCart(b.dataset.add));updateCartCount()}
+function logo(meta){if(meta.logo)return`<span class="provider-logo ${meta.class} wallet-logo-real"><img src="${meta.logo}" alt="${esc(meta.mark)}" loading="eager" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src=this.src.replace('https://cdn.simpleicons.org/','https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/').replace('.svg','')+'.svg'}else{this.style.display='none'}"></span>`;return`<span class="provider-logo ${meta.class} logo-icon"><span class="brand-icon">${esc(meta.icon||meta.mark||'✦')}</span></span>`}
+function render(){renderCategories();const arr=sorted(visible()),groups=[...new Set(arr.map(p=>p.provider))],g=document.querySelector('#catalog'),t=document.querySelector('#catalogTitle'),c=document.querySelector('#resultCount');if(t)t.textContent=categoryTitles[activeCategory];if(c)c.textContent=`${arr.length} produk · ${groups.length} layanan`;if(!g)return;if(!arr.length){g.innerHTML='<div class="empty">Belum ada produk pada kategori ini.</div>';return}g.innerHTML=groups.map(pr=>{const items=arr.filter(p=>p.provider===pr),m=providerMeta[pr]||{mark:pr.slice(0,8).toUpperCase(),class:'generic',icon:'✦'};return`<article class="provider-card"><button class="provider-head" type="button" aria-expanded="false">${logo(m)}<span class="provider-copy"><b>${esc(pr)}</b><small>${items.length} produk · mulai ${rp(Math.min(...items.map(x=>x.price)))}</small></span><span class="chevron">›</span></button><div class="provider-products">${items.map(row).join('')}</div></article>`}).join('');g.querySelectorAll('.provider-head').forEach(b=>b.onclick=()=>{const card=b.parentElement;card.classList.toggle('open');b.setAttribute('aria-expanded',card.classList.contains('open'))});g.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>openDetail(b.dataset.buy));g.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>addToCart(b.dataset.add));updateCartCount()}
 function row(p){return`<div class="product-row"><div><strong>${esc(p.product)}</strong><small>${p.category==='ewallet'?`Saldo ${rp(p.nominal)} · Top Up`:p.nominal?rp(p.nominal):'Nomor / ID pelanggan'}</small></div><div class="product-price">${rp(p.price)}</div><button class="mini-add" data-add="${esc(p.id)}">+</button><button class="mini-buy" data-buy="${esc(p.id)}">Beli</button></div>`}
 function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;cart.push(p);saveCart();toast('Ditambahkan ke keranjang')}
-function openDetail(id){const p=products.find(x=>x.id===id);if(!p)return;document.querySelector('#detailBody').innerHTML=`<div class="detail-logo"><strong>${esc(p.provider)}</strong></div><span class="eyebrow">${esc(categoryTitles[p.category])}</span><h2>${esc(p.product)}</h2><p class="detail-nominal">${p.category==='ewallet'?`Saldo ${rp(p.nominal)}`:(p.nominal?rp(p.nominal):'Gunakan nomor / ID pelanggan')}</p><strong class="detail-price">${rp(p.price)}</strong><label class="field-label">Nomor HP / ID pelanggan<input id="targetInput" inputmode="numeric" placeholder="Masukkan nomor tujuan"></label><div class="detail-actions"><button class="btn secondary dark-btn" onclick="closeModal('detailModal')">Batal</button><button class="btn primary" onclick="detailAdd('${esc(p.id)}')">Tambah ke Keranjang</button></div>`;openModal('detailModal')}
+function openDetail(id){const p=products.find(x=>x.id===id);if(!p)return;document.querySelector('#detailBody').innerHTML=`<div class="detail-logo">${logo(providerMeta[p.provider]||{mark:p.provider,class:'generic',icon:'✦'})}</div><span class="eyebrow">${esc(categoryTitles[p.category])}</span><h2>${esc(p.product)}</h2><p class="detail-nominal">${p.category==='ewallet'?`Saldo ${rp(p.nominal)}`:(p.nominal?rp(p.nominal):'Gunakan nomor / ID pelanggan')}</p><strong class="detail-price">${rp(p.price)}</strong><label class="field-label">Nomor HP / ID pelanggan<input id="targetInput" inputmode="numeric" placeholder="Masukkan nomor tujuan"></label><div class="detail-actions"><button class="btn secondary dark-btn" onclick="closeModal('detailModal')">Batal</button><button class="btn primary" onclick="detailAdd('${esc(p.id)}')">Tambah ke Keranjang</button></div>`;openModal('detailModal')}
 function detailAdd(id){const target=document.querySelector('#targetInput')?.value.trim();if(!target||target.length<4)return alert('Masukkan nomor HP atau ID pelanggan.');addToCart(id);closeModal('detailModal');openCart(target)}
 function openCart(target=''){const x=document.querySelector('#cartTarget');if(x)x.value=target;renderCart();openModal('cartModal')}
 function renderCart(){const e=document.querySelector('#cartItems'),t=document.querySelector('#cartTotal');if(!e||!t)return;if(!cart.length){e.innerHTML='<div class="empty-cart">Keranjang masih kosong.</div>';t.textContent=rp(0);return}e.innerHTML=cart.map((p,i)=>`<div class="cart-item"><div><b>${esc(p.product)}</b><small>${esc(p.provider)}</small></div><strong>${rp(p.price)}</strong><button onclick="removeCart(${i})">×</button></div>`).join('');t.textContent=rp(cart.reduce((n,p)=>n+p.price,0))}
@@ -50,4 +51,4 @@ function toast(s){const t=document.querySelector('#toast');if(!t)return;t.textCo
 function applyPaymentAccountNames(){document.querySelectorAll('.pay-method small').forEach(e=>{if(/a\.n\./i.test(e.textContent))e.textContent=e.textContent.replace(/a\.n\.[^·]+/i,'a.n. ANDRIANSYAH')})}
 function enhanceHomeAndPayments(){const p=document.querySelector('#paymentMethod');if(p&&!p.querySelector('option[value="COD"]')){const o=document.createElement('option');o.value='COD';o.textContent='COD (Bayar di Tempat)';p.appendChild(o)}applyPaymentAccountNames()}
 async function init(){try{const r=await fetch('produk.json',{cache:'no-store'});products=expandEwallet((await r.json()).map(normalize));render()}catch(e){const g=document.querySelector('#catalog');if(g)g.innerHTML='<div class="empty">Data produk belum dapat dimuat.</div>'}document.querySelector('#search')?.addEventListener('input',e=>{searchTerm=e.target.value.toLowerCase().trim();render()});document.querySelector('#sort')?.addEventListener('change',e=>{sortMode=e.target.value;render()});document.querySelector('#openCartTop')?.addEventListener('click',e=>{e.preventDefault();openCart()});document.querySelector('#openCartFab')?.addEventListener('click',()=>openCart())}
-document.addEventListener('DOMContentLoaded',()=>{if(location.hash==='#sayuran'){location.replace('toko.html#produk');return}init();enhanceHomeAndPayments()});
+document.addEventListener('DOMContentLoaded',()=>{init();enhanceHomeAndPayments()});
