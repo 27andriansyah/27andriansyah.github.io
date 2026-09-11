@@ -2,9 +2,9 @@ const CONFIG={whatsapp:'62816951127',storageKey:'27mart-cart-v1'};
 let products=[],cart=loadCart(),activeCategory='mobile',activeProvider='all',searchTerm='',sortMode='default';
 const walletLogoBase='https://cdn.jsdelivr.net/npm/idn-finlogos@2/dist/icons/';
 const providerMeta={Telkomsel:{mark:'TELKOMSEL',class:'telkomsel'},'by.U':{mark:'by.U',class:'byu'},IM3:{mark:'IM3',class:'im3'},Tri:{mark:'3',class:'tri'},XL:{mark:'XL',class:'xl'},AXIS:{mark:'AXIS',class:'axis'},Smartfren:{mark:'smartfren.',class:'smartfren'},'Live.On':{mark:'LIVE.ON',class:'liveon'},PLN:{mark:'PLN',class:'pln',icon:'⚡'},WiFi:{mark:'WiFi',class:'wifi',icon:'📶'},DANA:{mark:'DANA',class:'dana',logo:walletLogoBase+'dana.svg'},GoPay:{mark:'GoPay',class:'gopay',logo:walletLogoBase+'gopay.svg'},OVO:{mark:'OVO',class:'ovo',logo:walletLogoBase+'ovo.svg'},ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:walletLogoBase+'shopee-pay.svg'},LinkAja:{mark:'LinkAja',class:'linkaja',logo:walletLogoBase+'linkaja.svg'}};
-const categories=[['mobile','PULSA'],['data-voucher','PAKET DATA & VOUCHER'],['ewallet','E-WALLET'],['utility','PLN & WIFI']];
+const categories=[['mobile','PULSA'],['data-voucher','PAKET DATA & VOUCHER'],['ewallet','EWALET'],['utility','PLN & WIFI']];
 const allowedCategories=new Set(categories.map(x=>x[0]));
-const categoryTitles={mobile:'PULSA','data-voucher':'PAKET DATA & VOUCHER',ewallet:'E-WALLET',utility:'PLN & WIFI'};
+const categoryTitles={mobile:'PULSA','data-voucher':'PAKET DATA & VOUCHER',ewallet:'EWALET',utility:'PLN & WIFI'};
 const ewalletDenoms=[10000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000];
 const rp=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
 function normCat(c,p=''){c=String(c||'').toLowerCase().trim();const text=`${c} ${p}`.toLowerCase().replace(/[\s_-]+/g,' ');if(/pulsa/.test(text)&&!/(data|paket|voucher|kuota)/.test(text))return'mobile';if(/data|paket data|voucher|kuota/.test(text))return'data-voucher';if(/pln|token listrik|wifi|wi fi/.test(text))return'utility';if(/e wallet|ewallet|ewalet|e walet/.test(text))return'ewallet';return c}
