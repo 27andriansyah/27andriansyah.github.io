@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="27 Mart — toko sayuran, bahan pokok dan PPOB. Checkout per produk seperti e-commerce.">
+<title>27 Mart — Toko</title>
+<style>
+:root{--bg:#f5f8f5;--card:#fff;--ink:#122018;--muted:#68766e;--green:#16834b;--green2:#0e6b3d;--lime:#dff6e8;--orange:#ff8a2a;--line:#e3eae5;--dark:#0c1c14;--wa:#25d366;--shadow:0 16px 45px rgba(16,32,24,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f9fbf9,#eef4ef);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(94%,1180px);margin:auto}.top{background:var(--dark);color:#d8eee0;padding:9px 0;font-size:12px}.top .wrap{display:flex;justify-content:space-between;gap:10px}.top b{color:#83f0ad}.nav{position:sticky;top:0;z-index:30;background:rgba(249,251,249,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:22px;font-weight:950;letter-spacing:-.06em;text-decoration:none}.brand span{color:var(--green)}.navlinks{display:flex;gap:18px;font-size:13px;color:var(--muted)}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--green)}.back{border:0;background:#edf5ef;color:var(--green2);padding:11px 14px;border-radius:12px;font-weight:900;text-decoration:none}.hero{padding:38px 0 24px}.heroBox{background:var(--dark);color:#fff;border-radius:28px;padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;overflow:hidden;position:relative;box-shadow:var(--shadow)}.heroBox:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-160px;top:-220px;background:radial-gradient(circle,rgba(91,238,148,.25),transparent 65%)}.pill{display:inline-flex;border:1px solid rgba(126,242,170,.3);background:rgba(126,242,170,.08);color:#a3f6bd;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900}.hero h1{font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-.07em;margin:18px 0}.hero h1 span{color:#79eea7}.hero p{color:#b6c7bd;max-width:620px}.heroImg{min-height:240px;border-radius:22px;background:url('https://images.unsplash.com/photo-1768776847082-9ddb43ec49ea?auto=format&fit=crop&w=1000&q=80') center/cover;position:relative;z-index:1}.heroBtns{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.btn{border:0;border-radius:13px;padding:12px 16px;font-weight:900;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.btn.green{background:#65ea9d;color:#082315}.btn.light{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.13)}.toolbar{padding:30px 0 12px}.toolbarTop{display:flex;justify-content:space-between;align-items:end;gap:18px}.toolbar h2{font-size:clamp(30px,4vw,44px);line-height:1;letter-spacing:-.06em;margin:0}.toolbar p{color:var(--muted);font-size:13px;margin:8px 0 0}.search{width:min(370px,100%);border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 15px;font:inherit;outline:none}.tabs{display:flex;gap:8px;overflow:auto;padding:18px 0 10px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{border:1px solid var(--line);background:#fff;color:#516057;border-radius:999px;padding:10px 15px;font-size:12px;font-weight:850;white-space:nowrap;cursor:pointer}.tab.active,.tab:hover{background:var(--green);border-color:var(--green);color:#fff}.subnav{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 22px}.subnav button{border:1px solid var(--line);background:#f9fbfa;color:#5c6962;padding:8px 11px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer}.subnav button.active{background:#e4f6eb;color:var(--green2);border-color:#bde6ce}.notice{padding:13px 15px;background:#fff8e9;border:1px solid #ffe2aa;border-radius:14px;color:#79531c;font-size:12px;margin-bottom:22px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.product{background:var(--card);border:1px solid var(--line);border-radius:19px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 7px 24px rgba(16,32,24,.045);transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.pic{height:170px;background:#edf5ef;position:relative}.pic img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;top:9px;left:9px;background:rgba(255,255,255,.93);border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;color:var(--green2)}.body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}.body h3{font-size:14px;line-height:1.2;margin:0}.unit{font-size:11px;color:var(--muted)}.ref{font-size:10px;color:#8a958e;text-decoration:line-through}.price{font-size:19px;font-weight:950;color:var(--green2);letter-spacing:-.03em}.price small{font-size:10px;color:var(--muted);font-weight:700}.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:auto;padding-top:7px}.add,.buy{border:0;border-radius:11px;padding:10px 7px;font-weight:900;cursor:pointer;font-size:11px}.add{background:#e6f7ed;color:var(--green2)}.buy{background:var(--green);color:#fff}.add:hover{background:#d2f0df}.buy:hover{background:var(--green2)}.section{padding:65px 0}.section h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.06em;margin:0}.sectionLead{color:var(--muted);font-size:13px;margin:8px 0 20px}.paygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pay{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.pay b{display:block;font-size:15px}.pay strong{display:block;margin-top:10px;font-size:18px;letter-spacing:.02em}.pay span{display:block;color:var(--muted);font-size:11px;margin-top:5px}.pay.qris{background:linear-gradient(135deg,#0d1d15,#173f2a);color:#fff}.pay.qris span{color:#b9cec0}.footer{margin-top:30px;background:var(--dark);color:#a9b9af;padding:38px 0}.footer .wrap{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer strong{color:#fff}.footer a{color:#8af0af;text-decoration:none}.empty{grid-column:1/-1;text-align:center;padding:55px;background:#fff;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}.drawer{position:fixed;inset:0;background:rgba(4,12,8,.48);backdrop-filter:blur(7px);z-index:80;display:none;justify-content:flex-end}.drawer.show{display:flex}.panel{width:min(455px,100%);height:100%;background:#fff;padding:23px;display:flex;flex-direction:column;box-shadow:-20px 0 70px rgba(0,0,0,.18)}.panelTop{display:flex;align-items:center;justify-content:space-between}.close{border:0;background:#edf2ee;border-radius:10px;width:38px;height:38px;font-size:20px;cursor:pointer}.cartItems{overflow:auto;flex:1;margin:15px 0}.cartItem{display:grid;grid-template-columns:56px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}.thumb{width:56px;height:56px;border-radius:11px;overflow:hidden;background:#edf5ef}.thumb img{width:100%;height:100%;object-fit:cover}.cartItem strong{font-size:13px}.cartItem small{display:block;color:var(--muted);font-size:11px}.qty{display:flex;gap:6px;align-items:center;margin-top:5px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer}.summary{border-top:1px solid var(--line);padding-top:14px}.row{display:flex;justify-content:space-between;gap:10px;font-size:13px;margin:6px 0}.row.total{font-size:19px;font-weight:950;margin-top:10px}.method{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:#fff;margin:10px 0;font:inherit}.checkout{width:100%;border:0;background:var(--wa);color:#fff;padding:14px;border-radius:12px;font-weight:950;cursor:pointer}.mini{font-size:10px;color:var(--muted);margin-top:8px;line-height:1.45}
+@media(max-width:1000px){.products{grid-template-columns:repeat(3,1fr)}.heroBox{grid-template-columns:1fr}.paygrid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.navlinks{display:none}.toolbarTop{flex-direction:column;align-items:stretch}.products{grid-template-columns:repeat(2,1fr);gap:10px}.pic{height:145px}.heroBox{padding:25px}.heroImg{min-height:220px}.footer .wrap{flex-direction:column;align-items:flex-start}}@media(max-width:470px){.products{grid-template-columns:1fr 1fr}.body{padding:11px}.price{font-size:17px}.actions{grid-template-columns:1fr}.paygrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>🛒 <b>27 Mart</b> · Toko online</span><span>Harga katalog = referensi + Rp2.000</span></div></div>
+<header class="nav"><div class="wrap navin"><a class="brand" href="/">27 <span>Mart</span></a><nav class="navlinks"><a href="#produk">Produk</a><a href="#pembayaran">Pembayaran</a><a href="/">Web Utama</a></nav><button class="back" id="openCart">🛒 Keranjang <span id="count">0</span></button></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="heroBox"><div><span class="pill">🥬 SAYURAN · 🌾 BAHAN POKOK · 📱 PPOB</span><h1>Belanja cepat,<br><span>checkout langsung.</span></h1><p>Produk sudah dipisahkan agar lebih mudah: sayuran & bumbu, bahan pokok, lalu PPOB. Setiap produk punya tombol <b>⚡ Checkout</b> seperti pengalaman belanja e-commerce.</p><div class="heroBtns"><a class="btn green" href="#produk">Mulai Belanja ↓</a><a class="btn light" href="/">← Kembali ke Web Utama</a></div></div><div class="heroImg"></div></div></div></section>
+<section id="produk" class="toolbar"><div class="wrap"><div class="toolbarTop"><div><h2>Semua produk</h2><p>Gambar dibuat relevan dengan nama produk; foto merupakan ilustrasi dan bukan jaminan merek/kemasan.</p></div><input id="search" class="search" type="search" placeholder="🔎 Cari sayur, sembako, PPOB..."></div><div class="tabs" id="tabs"><button class="tab active" data-cat="all">✨ Semua</button><button class="tab" data-cat="sayur">🥬 Sayuran & Bumbu</button><button class="tab" data-cat="sembako">🌾 Bahan Pokok</button><button class="tab" data-cat="ppob">📱 PPOB</button></div><div class="subnav" id="subnav"></div><div class="notice">💡 <b>Catatan harga:</b> angka yang tampil adalah harga katalog referensi. Untuk komoditas pangan, HPP supplier nyata bisa berbeda menurut kualitas, wilayah, pemasok, dan waktu pembelian.</div><div class="products" id="products"></div></div></section>
+<section id="pembayaran" class="section"><div class="wrap"><h2>Pembayaran</h2><p class="sectionLead">Setelah checkout, pesanan dikirim ke WhatsApp untuk konfirmasi stok, ongkir, dan pembayaran.</p><div class="paygrid"><div class="pay qris"><b>▣ QRIS · 27HOMEANDSTORE</b><strong>ID1026565203241</strong><span>NMID QRIS · A01 · Satu QRIS untuk semua</span></div><div class="pay"><b>🏦 BCA</b><strong>2831248345</strong><span>Konfirmasi nama pemilik rekening saat checkout.</span></div><div class="pay"><b>🏦 Bank Mandiri</b><strong>1220015332466</strong><span>Konfirmasi nama pemilik rekening saat checkout.</span></div></div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><div><strong>27 Mart</strong><br><span>Toko dari 27HOMEANDSTORE · Nagreg, Bandung</span></div><div><a href="https://wa.me/62816951127" target="_blank" rel="noopener">💬 WhatsApp 0816 951 127</a></div></div></footer>
+<div class="drawer" id="drawer"><aside class="panel"><div class="panelTop"><div><b>Keranjang</b><div style="font-size:11px;color:#68766e">Atur jumlah sebelum kirim pesanan</div></div><button class="close" id="close">×</button></div><div class="cartItems" id="cartItems"></div><div class="summary"><div class="row"><span>Subtotal</span><b id="subtotal">Rp0</b></div><div class="row"><span>Ongkir</span><span>Konfirmasi via WhatsApp</span></div><select id="method" class="method"><option value="QRIS 27HOMEANDSTORE">Bayar QRIS · 27HOMEANDSTORE</option><option value="BCA 2831248345">Transfer BCA · 2831248345</option><option value="Mandiri 1220015332466">Transfer Mandiri · 1220015332466</option></select><div class="row total"><span>Total produk</span><b id="total">Rp0</b></div><button class="checkout" onclick="sendWA()">💬 Checkout via WhatsApp</button><div class="mini">Checkout ini membuat pesan pesanan dan membukanya di WhatsApp. Stok, ongkir, dan total akhir dikonfirmasi sebelum pembayaran.</div></div></aside></div>
+<script>
+const WA='62816951127',MARGIN=2000;
+const img=(term,lock)=>`https://loremflickr.com/640/480/${encodeURIComponent(term)}?lock=${lock}`;
+const direct={
+'wortel':'https://images.unsplash.com/photo-1659958164726-4e09f490d5e1?auto=format&fit=crop&w=900&q=80',
+'kentang':'https://images.unsplash.com/photo-1781113153869-517f94d141c5?auto=format&fit=crop&w=900&q=80',
+'pasar sayuran':'https://images.unsplash.com/photo-1781427012192-92e114b131e7?auto=format&fit=crop&w=900&q=80',
+'tomat':'https://images.unsplash.com/photo-1768776847082-9ddb43ec49ea?auto=format&fit=crop&w=900&q=80',
+'beras':'https://images.unsplash.com/photo-1743674452796-ad8d0cf38005?auto=format&fit=crop&w=900&q=80',
+'minyak goreng':'https://images.unsplash.com/photo-1757801333068-d52a3e448cde?auto=format&fit=crop&w=900&q=80',
+'telur':'https://images.unsplash.com/photo-1559325507-906fa1f71364?auto=format&fit=crop&w=900&q=80'
+};
+const products=[
+{id:'tomat',n:'Tomat',c:'sayur',s:'Sayuran',u:'500 g',hpp:12000,k:'tomat'},
+{id:'cabai-merah',n:'Cabai Merah',c:'sayur',s:'Sayuran',u:'250 g',hpp:59850,k:'cabai merah'},
+{id:'cabai-rawit',n:'Cabai Rawit Merah',c:'sayur',s:'Sayuran',u:'250 g',hpp:25000,k:'cabai rawit'},
+{id:'cabai-keriting',n:'Cabai Merah Keriting',c:'sayur',s:'Sayuran',u:'250 g',hpp:21000,k:'cabai merah keriting'},
+{id:'bawang-merah',n:'Bawang Merah',c:'sayur',s:'Bumbu',u:'250 g',hpp:19000,k:'bawang merah'},
+{id:'bawang-putih',n:'Bawang Putih',c:'sayur',s:'Bumbu',u:'250 g',hpp:16000,k:'bawang putih'},
+{id:'bawang-bombay',n:'Bawang Bombay',c:'sayur',s:'Bumbu',u:'500 g',hpp:22000,k:'bawang bombay'},
+{id:'daun-bawang',n:'Daun Bawang',c:'sayur',s:'Sayuran',u:'250 g',hpp:6000,k:'daun bawang'},
+{id:'kentang',n:'Kentang',c:'sayur',s:'Sayuran',u:'500 g',hpp:12000,k:'kentang'},
+{id:'wortel',n:'Wortel',c:'sayur',s:'Sayuran',u:'500 g',hpp:17000,k:'wortel'},
+{id:'tauge',n:'Tauge',c:'sayur',s:'Sayuran',u:'500 g',hpp:9000,k:'tauge'},
+{id:'caisim',n:'Caisim / Sawi Hijau',c:'sayur',s:'Sayuran',u:'250 g',hpp:6000,k:'sawi hijau'},
+{id:'kangkung',n:'Kangkung',c:'sayur',s:'Sayuran',u:'1 ikat',hpp:5000,k:'kangkung'},
+{id:'bayam',n:'Bayam',c:'sayur',s:'Sayuran',u:'1 ikat',hpp:6000,k:'bayam'},
+{id:'sawi-putih',n:'Sawi Putih',c:'sayur',s:'Sayuran',u:'500 g',hpp:10000,k:'sawi putih'},
+{id:'brokoli',n:'Brokoli',c:'sayur',s:'Sayuran',u:'500 g',hpp:25000,k:'broccoli'},
+{id:'buncis',n:'Buncis',c:'sayur',s:'Sayuran',u:'250 g',hpp:8000,k:'green beans'},
+{id:'kacang-panjang',n:'Kacang Panjang',c:'sayur',s:'Sayuran',u:'250 g',hpp:6000,k:'long beans'},
+{id:'jagung',n:'Jagung Manis Kupas',c:'sayur',s:'Sayuran',u:'500 g',hpp:12000,k:'sweet corn'},
+{id:'terong',n:'Terong Ungu',c:'sayur',s:'Sayuran',u:'500 g',hpp:9000,k:'eggplant'},
+{id:'timun',n:'Timun',c:'sayur',s:'Sayuran',u:'500 g',hpp:9000,k:'cucumber'},
+{id:'jahe',n:'Jahe Putih',c:'sayur',s:'Bumbu',u:'250 g',hpp:10000,k:'ginger'},
+{id:'kunyit',n:'Kunyit',c:'sayur',s:'Bumbu',u:'250 g',hpp:6000,k:'turmeric'},
+{id:'lengkuas',n:'Lengkuas',c:'sayur',s:'Bumbu',u:'200 g',hpp:5000,k:'galangal'},
+{id:'sereh',n:'Sereh',c:'sayur',s:'Bumbu',u:'200 g',hpp:4000,k:'lemongrass'},
+{id:'kol',n:'Kol / Kubis',c:'sayur',s:'Sayuran',u:'500 g',hpp:8000,k:'cabbage'},
+{id:'selada',n:'Selada',c:'sayur',s:'Sayuran',u:'250 g',hpp:9000,k:'lettuce'},
+{id:'paprika',n:'Paprika',c:'sayur',s:'Sayuran',u:'250 g',hpp:18000,k:'bell pepper'},
+{id:'jamur',n:'Jamur Tiram',c:'sayur',s:'Sayuran',u:'250 g',hpp:9000,k:'oyster mushroom'},
+{id:'beras',n:'Beras Premium',c:'sembako',s:'Sembako',u:'1 kg',hpp:14150,k:'beras'},
+{id:'beras-medium',n:'Beras Medium',c:'sembako',s:'Sembako',u:'1 kg',hpp:13500,k:'rice grain'},
+{id:'gula',n:'Gula Pasir',c:'sembako',s:'Sembako',u:'1 kg',hpp:16450,k:'sugar'},
+{id:'minyak',n:'Minyak Goreng',c:'sembako',s:'Sembako',u:'1 liter',hpp:19400,k:'minyak goreng'},
+{id:'telur',n:'Telur Ayam',c:'sembako',s:'Sembako',u:'1 kg',hpp:24950,k:'telur ayam'},
+{id:'ayam',n:'Daging Ayam',c:'sembako',s:'Protein',u:'1 kg',hpp:30350,k:'chicken meat'},
+{id:'sapi',n:'Daging Sapi',c:'sembako',s:'Protein',u:'1 kg',hpp:132650,k:'beef'},
+{id:'tepung-terigu',n:'Tepung Terigu',c:'sembako',s:'Sembako',u:'1 kg',hpp:12000,k:'flour'},
+{id:'tepung-tapioka',n:'Tepung Tapioka',c:'sembako',s:'Sembako',u:'500 g',hpp:7000,k:'tapioca flour'},
+{id:'mie',n:'Mi Instan',c:'sembako',s:'Sembako',u:'1 bungkus',hpp:3000,k:'instant noodles'},
+{id:'garam',n:'Garam',c:'sembako',s:'Sembako',u:'500 g',hpp:3500,k:'salt'},
+{id:'kecap',n:'Kecap Manis',c:'sembako',s:'Sembako',u:'600 ml',hpp:12000,k:'soy sauce'},
+{id:'santan',n:'Santan',c:'sembako',s:'Sembako',u:'200 ml',hpp:5000,k:'coconut milk'},
+{id:'teh',n:'Teh Celup',c:'sembako',s:'Minuman',u:'1 kotak',hpp:8000,k:'tea bag'},
+{id:'kopi',n:'Kopi Bubuk',c:'sembako',s:'Minuman',u:'100 g',hpp:9000,k:'coffee'},
+{id:'susu',n:'Susu UHT',c:'sembako',s:'Minuman',u:'1 liter',hpp:19000,k:'milk carton'},
+{id:'air',n:'Air Mineral',c:'sembako',s:'Minuman',u:'600 ml',hpp:3000,k:'bottled water'},
+{id:'oat',n:'Oat / Oatmeal',c:'sembako',s:'Sembako',u:'500 g',hpp:18000,k:'oatmeal'},
+{id:'kacang',n:'Kacang Tanah',c:'sembako',s:'Sembako',u:'500 g',hpp:13000,k:'peanuts'},
+{id:'bihun',n:'Bihun',c:'sembako',s:'Sembako',u:'200 g',hpp:6000,k:'rice noodles'},
+{id:'makaroni',n:'Makaroni',c:'sembako',s:'Sembako',u:'250 g',hpp:8000,k:'macaroni'},
+{id:'pasta',n:'Pasta',c:'sembako',s:'Sembako',u:'500 g',hpp:16000,k:'pasta'},
+{id:'pulsa-xl5',n:'Pulsa XL 5K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:5889,k:'smartphone'},
+{id:'pulsa-xl10',n:'Pulsa XL 10K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:10895,k:'smartphone'},
+{id:'pulsa-axis5',n:'Pulsa AXIS 5K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:5805,k:'smartphone'},
+{id:'pulsa-telkomsel5',n:'Pulsa Telkomsel 5K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:7000,k:'smartphone'},
+{id:'pulsa-tri5',n:'Pulsa Tri 5K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:6500,k:'smartphone'},
+{id:'pulsa-indosat5',n:'Pulsa Indosat 5K',c:'ppob',s:'Pulsa',u:'1 transaksi',hpp:6500,k:'smartphone'},
+{id:'data-xl',n:'Paket Data XL',c:'ppob',s:'Paket Data',u:'mulai',hpp:12000,k:'mobile data'},
+{id:'data-telkomsel',n:'Paket Data Telkomsel',c:'ppob',s:'Paket Data',u:'mulai',hpp:15000,k:'mobile data'},
+{id:'data-indosat',n:'Paket Data Indosat',c:'ppob',s:'Paket Data',u:'mulai',hpp:14000,k:'mobile data'},
+{id:'data-tri',n:'Paket Data Tri',c:'ppob',s:'Paket Data',u:'mulai',hpp:12000,k:'mobile data'},
+{id:'pln20',n:'Token PLN 20K',c:'ppob',s:'Token PLN',u:'1 transaksi',hpp:22555,k:'electric meter'},
+{id:'pln50',n:'Token PLN 50K',c:'ppob',s:'Token PLN',u:'1 transaksi',hpp:52573,k:'electric meter'},
+{id:'pln100',n:'Token PLN 100K',c:'ppob',s:'Token PLN',u:'1 transaksi',hpp:102064,k:'electric meter'},
+{id:'pln200',n:'Token PLN 200K',c:'ppob',s:'Token PLN',u:'1 transaksi',hpp:202064,k:'electric meter'},
+{id:'pln500',n:'Token PLN 500K',c:'ppob',s:'Token PLN',u:'1 transaksi',hpp:502788,k:'electric meter'},
+{id:'emoney',n:'Top Up E-Money',c:'ppob',s:'E-Money',u:'sesuai nominal',hpp:20000,k:'contactless payment'},
+{id:'bpjs',n:'BPJS Kesehatan',c:'ppob',s:'Tagihan',u:'sesuai tagihan',hpp:2500,k:'health card'},
+{id:'pdam',n:'Tagihan PDAM',c:'ppob',s:'Tagihan',u:'sesuai tagihan',hpp:2500,k:'water meter'},
+{id:'internet',n:'Tagihan Internet',c:'ppob',s:'Tagihan',u:'sesuai tagihan',hpp:2500,k:'wifi router'}
+];
+let cart={};let active='all';
+const rupiah=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+function photo(p,i){return direct[p.k]||img(p.k,i+11)}
+function filtered(){const q=document.getElementById('search').value.trim().toLowerCase();return products.filter(p=>(active==='all'||p.c===active)&&(!q||p.n.toLowerCase().includes(q)||p.s.toLowerCase().includes(q)))}
+function renderTabs(){const box=document.getElementById('subnav');let vals=active==='sayur'?['Semua Sayur & Bumbu','Sayuran','Bumbu']:active==='sembako'?['Semua Sembako','Sembako','Protein','Minuman']:active==='ppob'?['Semua PPOB','Pulsa','Paket Data','Token PLN','E-Money','Tagihan']:[];box.innerHTML=vals.map((v,i)=>`<button class="${i===0?'active':''}" onclick="filterSub('${v}',this)">${v}</button>`).join('')}
+function filterSub(v,el){document.querySelectorAll('#subnav button').forEach(b=>b.classList.remove('active'));el.classList.add('active');let q=document.getElementById('search').value.trim().toLowerCase();let list=products.filter(p=>(active==='all'||p.c===active)&&(!q||p.n.toLowerCase().includes(q)||p.s.toLowerCase().includes(q)));if(v!=='Semua Sayur & Bumbu'&&v!=='Semua Sembako'&&v!=='Semua PPOB')list=list.filter(p=>p.s===v);draw(list)}
+function draw(list=filtered()){const box=document.getElementById('products');if(!list.length){box.innerHTML='<div class="empty">Produk tidak ditemukan. Coba kata kunci lain.</div>';return}box.innerHTML=list.map((p,i)=>`<article class="product"><div class="pic"><img loading="lazy" src="${photo(p,i)}" alt="${p.n}" onerror="this.src='${img('fresh food',99)}'"><span class="badge">${p.s}</span></div><div class="body"><h3>${p.n}</h3><div class="unit">${p.u}</div><div class="ref">HPP ref. ${rupiah(p.hpp)}</div><div class="price">${rupiah(p.hpp+MARGIN)} <small>+ margin</small></div><div class="actions"><button class="add" onclick="add('${p.id}')">＋ Keranjang</button><button class="buy" onclick="checkout('${p.id}')">⚡ Checkout</button></div></div></article>`).join('')}
+function add(id){cart[id]=(cart[id]||0)+1;update();openDrawer()}
+function checkout(id){cart={};cart[id]=1;update();openDrawer()}
+function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];update()}
+function update(){const items=Object.entries(cart);document.getElementById('count').textContent=items.reduce((a,[,q])=>a+q,0);let total=0;document.getElementById('cartItems').innerHTML=items.length?items.map(([id,q],i)=>{const p=products.find(x=>x.id===id);const sub=(p.hpp+MARGIN)*q;total+=sub;return `<div class="cartItem"><div class="thumb"><img src="${photo(p,i)}" alt="${p.n}"></div><div><strong>${p.n}</strong><small>${rupiah(p.hpp+MARGIN)} · ${p.u}</small><div class="qty"><button onclick="change('${id}',-1)">−</button><b>${q}</b><button onclick="change('${id}',1)">＋</button></div></div><b>${rupiah(sub)}</b></div>`}).join(''):'<div class="empty">Keranjang masih kosong.<br>Pilih produk lalu tekan <b>⚡ Checkout</b>.</div>';document.getElementById('subtotal').textContent=rupiah(total);document.getElementById('total').textContent=rupiah(total)}
+function openDrawer(){document.getElementById('drawer').classList.add('show')}function closeDrawer(){document.getElementById('drawer').classList.remove('show')}
+function sendWA(){const items=Object.entries(cart);if(!items.length){alert('Keranjang masih kosong.');return}let total=0;let lines=items.map(([id,q])=>{const p=products.find(x=>x.id===id);const sub=(p.hpp+MARGIN)*q;total+=sub;return `• ${p.n} — ${q} x ${rupiah(p.hpp+MARGIN)} = ${rupiah(sub)}`}).join('%0A');const method=document.getElementById('method').value;const text=`Halo 27 Mart, saya mau checkout:%0A%0A${lines}%0A%0ATotal produk: ${rupiah(total)}%0AMetode pembayaran: ${method}%0A%0AMohon konfirmasi stok, ongkir, dan total akhir.`;window.open(`https://wa.me/${WA}?text=${text}`,'_blank')}
+document.getElementById('openCart').onclick=openDrawer;document.getElementById('close').onclick=closeDrawer;document.getElementById('drawer').addEventListener('click',e=>{if(e.target.id==='drawer')closeDrawer()});document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.cat;renderTabs();draw()});document.getElementById('search').addEventListener('input',()=>draw());renderTabs();draw();update();
+</script>
+</body></html>
