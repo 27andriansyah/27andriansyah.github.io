@@ -2,11 +2,11 @@ const CONFIG={whatsapp:'62816951127',storageKey:'27mart-cart-v1'};
 let products=[],cart=loadCart(),activeCategory='mobile',activeProvider='all',searchTerm='',sortMode='default';
 const walletLogoBase='https://unpkg.com/idn-finlogos@2/dist/icons/';
 const providerMeta={Telkomsel:{mark:'TELKOMSEL',class:'telkomsel'},'by.U':{mark:'by.U',class:'byu'},IM3:{mark:'IM3',class:'im3'},Tri:{mark:'3',class:'tri'},XL:{mark:'XL',class:'xl'},AXIS:{mark:'AXIS',class:'axis'},Smartfren:{mark:'smartfren.',class:'smartfren'},'Live.On':{mark:'LIVE.ON',class:'liveon'},PLN:{mark:'PLN',class:'pln',icon:'⚡'},WiFi:{mark:'WiFi',class:'wifi',icon:'📶'},DANA:{mark:'DANA',class:'dana',logo:walletLogoBase+'dana.svg'},GoPay:{mark:'GoPay',class:'gopay',logo:walletLogoBase+'gopay.svg'},OVO:{mark:'OVO',class:'ovo',logo:walletLogoBase+'ovo.svg'},ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:walletLogoBase+'shopee-pay.svg'},LinkAja:{mark:'LinkAja',class:'linkaja',logo:walletLogoBase+'linkaja.svg'}};
-const categories=[['mobile','Pulsa, Paket Data & Voucher'],['ewallet','E-Wallet'],['utility','PLN & WiFi']];
-const categoryTitles={mobile:'Pulsa, Paket Data & Voucher',ewallet:'E-Wallet',utility:'PLN & WiFi'};
+const categories=[['mobile','Pulsa'],['data-voucher','Paket Data & Voucher'],['ewallet','E-Wallet'],['utility','PLN & WiFi']];
+const categoryTitles={mobile:'Pulsa', 'data-voucher':'Paket Data & Voucher',ewallet:'E-Wallet',utility:'PLN & WiFi'};
 const ewalletDenoms=[10000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000];
 const rp=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
-function normCat(c,p=''){c=String(c||'').toLowerCase().trim();const text=`${c} ${p}`;if(/pulsa|data|paket.?data|voucher|kuota/.test(text))return'mobile';if(/pln|token.?listrik|wifi|wi-fi/.test(text))return'utility';if(/e.?wallet/.test(c))return'ewallet';return c}
+function normCat(c,p=''){c=String(c||'').toLowerCase().trim();const text=`${c} ${p}`;if(/pulsa/.test(text)&&!/(data|paket|voucher|kuota)/.test(text))return'mobile';if(/data|paket.?data|voucher|kuota/.test(text))return'data-voucher';if(/pln|token.?listrik|wifi|wi-fi/.test(text))return'utility';if(/e.?wallet/.test(c))return'ewallet';return c}
 function normalize(p){return{id:String(p.id??''),category:normCat(p.category,p.product),provider:String(p.provider||'Layanan'),product:String(p.product||''),nominal:Number(p.nominal||0),price:Number(p.price||0),status:String(p.status||'active')}}
 function expandEwallet(base){const names=[...new Set(base.filter(p=>p.category==='ewallet').map(p=>p.provider))];const wallets=names.flatMap(provider=>ewalletDenoms.map(n=>({id:`wallet-${slug(provider)}-${n}`,category:'ewallet',provider,product:`Top Up ${provider} ${rp(n)}`,nominal:n,price:n+2000,status:'active'})));return[...base.filter(p=>p.category!=='ewallet'),...wallets]}
 function loadCart(){try{return JSON.parse(localStorage.getItem(CONFIG.storageKey)||'[]')}catch{return[]}}
