@@ -2,25 +2,7 @@ const CONFIG={whatsapp:'62816951127',storageKey:'27mart-cart-v1'};
 let products=[],cart=loadCart(),activeCategory='pulsa',activeProvider='all',searchTerm='',sortMode='default';
 const logoBase='https://commons.wikimedia.org/wiki/Special:Redirect/file/';
 const walletLogoBase='https://cdn.jsdelivr.net/npm/idn-finlogos@2/dist/icons/';
-const providerMeta={
-  Telkomsel:{mark:'TELKOMSEL',class:'telkomsel',logo:logoBase+'Telkomsel_2021_icon.svg'},
-  'by.U':{mark:'by.U',class:'byu',logo:logoBase+'Byu-logo-blue.svg'},
-  IM3:{mark:'IM3',class:'im3',logo:logoBase+'Logo_IM3.svg'},
-  Tri:{mark:'3',class:'tri',logo:logoBase+'Three_logo.svg'},
-  XL:{mark:'XL',class:'xl',logo:logoBase+'XL_Axiata_2014.svg'},
-  AXIS:{mark:'AXIS',class:'axis',logo:logoBase+'Axis_logo_2015.svg'},
-  Smartfren:{mark:'smartfren.',class:'smartfren',logo:logoBase+'Smartfren_logo.svg'},
-  'Live.On':{mark:'LIVE.ON',class:'liveon',logo:logoBase+'LIVE.ON.svg'},
-  PLN:{mark:'PLN',class:'pln',icon:'⚡'},
-  DANA:{mark:'DANA',class:'dana',logo:walletLogoBase+'dana.svg'},
-  GoPay:{mark:'GoPay',class:'gopay',logo:walletLogoBase+'gopay.svg'},
-  OVO:{mark:'OVO',class:'ovo',logo:walletLogoBase+'ovo.svg'},
-  ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:walletLogoBase+'shopee-pay.svg'},
-  LinkAja:{mark:'LinkAja',class:'linkaja',logo:walletLogoBase+'linkaja.svg'},
-  PDAM:{mark:'PDAM',class:'pdam',icon:'💧'},BPJS:{mark:'BPJS',class:'bpjs',icon:'✚'},
-  'Mobile Legends':{mark:'ML',class:'ml',icon:'🎮'},'Free Fire':{mark:'FF',class:'ff',icon:'🔥'},'PUBG Mobile':{mark:'PUBG',class:'pubg',icon:'🎯'},Roblox:{mark:'ROBLOX',class:'roblox',icon:'◈'},
-  'Lainnya':{mark:'DIGITAL',class:'generic',icon:'✦'}
-};
+const providerMeta={Telkomsel:{mark:'TELKOMSEL',class:'telkomsel',logo:logoBase+'Telkomsel_2021_icon.svg'},'by.U':{mark:'by.U',class:'byu',logo:logoBase+'Byu-logo-blue.svg'},IM3:{mark:'IM3',class:'im3',logo:logoBase+'Logo_IM3.svg'},Tri:{mark:'3',class:'tri',logo:logoBase+'Three_logo.svg'},XL:{mark:'XL',class:'xl',logo:logoBase+'XL_Axiata_2014.svg'},AXIS:{mark:'AXIS',class:'axis',logo:logoBase+'Axis_logo_2015.svg'},Smartfren:{mark:'smartfren.',class:'smartfren',logo:logoBase+'Smartfren_logo.svg'},'Live.On':{mark:'LIVE.ON',class:'liveon',logo:logoBase+'LIVE.ON.svg'},PLN:{mark:'PLN',class:'pln',icon:'⚡'},DANA:{mark:'DANA',class:'dana',logo:walletLogoBase+'dana.svg'},GoPay:{mark:'GoPay',class:'gopay',logo:walletLogoBase+'gopay.svg'},OVO:{mark:'OVO',class:'ovo',logo:walletLogoBase+'ovo.svg'},ShopeePay:{mark:'ShopeePay',class:'shopeepay',logo:walletLogoBase+'shopee-pay.svg'},LinkAja:{mark:'LinkAja',class:'linkaja',logo:walletLogoBase+'linkaja.svg'},PDAM:{mark:'PDAM',class:'pdam',icon:'💧'},BPJS:{mark:'BPJS',class:'bpjs',icon:'✚'},'Mobile Legends':{mark:'ML',class:'ml',icon:'🎮'},'Free Fire':{mark:'FF',class:'ff',icon:'🔥'},'PUBG Mobile':{mark:'PUBG',class:'pubg',icon:'🎯'},Roblox:{mark:'ROBLOX',class:'roblox',icon:'◈'},Lainnya:{mark:'DIGITAL',class:'generic',icon:'✦'}};
 const categories=[['all','Semua'],['pulsa','Pulsa'],['data','Paket Data'],['pln','Token PLN'],['voucher','Voucher'],['ewallet','E-Wallet'],['ppob','PPOB'],['game','Game'],['masa-aktif','Masa Aktif']];
 const categoryTitles={all:'Semua Produk',pulsa:'Pilih Provider Pulsa',data:'Pilih Provider Paket Data',pln:'Token PLN',voucher:'Voucher Digital',ewallet:'Top Up E-Wallet',ppob:'Layanan PPOB',game:'Top Up Game','masa-aktif':'Masa Aktif'};
 const ewalletDenoms=[10000,20000,25000,50000,75000,100000,150000,200000,250000,500000,1000000];
@@ -53,5 +35,6 @@ function checkoutWA(){if(!cart.length)return alert('Keranjang masih kosong.');co
 function openModal(id){document.getElementById(id).classList.add('show');document.body.classList.add('modal-open')}
 function closeModal(id){document.getElementById(id).classList.remove('show');if(!document.querySelector('.modal.show'))document.body.classList.remove('modal-open')}
 function toast(text){const t=document.querySelector('#toast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
-async function init(){try{const r=await fetch('produk.json?'+Date.now());if(!r.ok)throw new Error('produk');const raw=await r.json();const base=(Array.isArray(raw)?raw:raw.products||[]).map(normalize);products=expandEwallet(base);render()}catch(e){document.querySelector('#resultCount').textContent='Gagal memuat katalog';document.querySelector('#catalog').innerHTML='<div class="empty">produk.json belum dapat dimuat.</div>'}updateCartCount()}
+function applyPaymentAccountNames(){document.querySelectorAll('.pay-method small').forEach(el=>{const t=el.textContent;if(/BCA|Mandiri|OVO|GoPay|ShopeePay/i.test(t)&&!/a\.n\./i.test(t))el.textContent=t+' · a.n. ANDRIANSYAH';else if(/a\.n\./i.test(t))el.textContent=t.replace(/a\.n\.[^·]+/i,'a.n. ANDRIANSYAH')})}
+async function init(){try{const r=await fetch('produk.json?'+Date.now());if(!r.ok)throw new Error('produk');const raw=await r.json();const base=(Array.isArray(raw)?raw:raw.products||[]).map(normalize);products=expandEwallet(base);render()}catch(e){document.querySelector('#resultCount').textContent='Gagal memuat katalog';document.querySelector('#catalog').innerHTML='<div class="empty">produk.json belum dapat dimuat.</div>'}updateCartCount();applyPaymentAccountNames()}
 document.addEventListener('DOMContentLoaded',()=>{document.querySelector('#search').oninput=e=>{searchTerm=e.target.value.toLowerCase().trim();render()};document.querySelector('#sort').onchange=e=>{sortMode=e.target.value;render()};document.querySelector('#openCartTop').onclick=e=>{e.preventDefault();openCart()};document.querySelector('#openCartFab').onclick=openCart;document.querySelector('#clearCart').onclick=clearCart;document.querySelector('#sendWA').onclick=checkoutWA;document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));document.querySelectorAll('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)closeModal(m.id)});init()});
