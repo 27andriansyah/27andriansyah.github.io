@@ -1,4 +1,12 @@
 export default async function handler(req,res){
+  const origin=String(req.headers?.origin||'');
+  const allowedOrigins=new Set(['https://27andriansyah.my.id','https://www.27andriansyah.my.id']);
+  if(allowedOrigins.has(origin))res.setHeader('Access-Control-Allow-Origin',origin);
+  res.setHeader('Vary','Origin');
+  res.setHeader('Access-Control-Allow-Methods','POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type');
+  res.setHeader('Access-Control-Max-Age','86400');
+  if(req.method==='OPTIONS')return res.status(204).end();
   if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});
   if(!process.env.XAI_API_KEY)return res.status(503).json({error:'XAI_API_KEY belum terpasang di Vercel.'});
   try{
@@ -8,7 +16,7 @@ export default async function handler(req,res){
     if(!message)return res.status(400).json({error:'Pesan kosong.'});
     if(message.length>2000)return res.status(400).json({error:'Pesan terlalu panjang.'});
     const system=`Kamu adalah AI resmi 27 Mart, asisten belanja dan pembayaran berbahasa Indonesia. Bantu pengguna memilih produk, memahami layanan, dan menyiapkan langkah pembelian. Layanan utama: PULSA; PAKET DATA & VOUCHER; E-WALLET; PLN & WIFI; serta belanja sayuran, bumbu-bumbu, dan bahan pokok. Jawab singkat, jelas, ramah, dan jangan mengarang harga atau stok. Jika data katalog tidak tersedia, katakan terus terang. Jangan pernah meminta atau menampilkan API key, password, PIN, OTP, atau data rahasia. Untuk transaksi final, arahkan pengguna menggunakan checkout/WhatsApp 27 Mart.\n\nKonteks katalog saat ini:\n${context}`;
-    const r=await fetch('https://api.x.ai/v1/responses',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${process.env.XAI_API_KEY}`},body:JSON.stringify({model:'grok-4.6',store:false,input:[{role:'system',content:system},{role:'user',content:message}]})});
+    const r=await fetch('https://api.x.ai/v1/responses',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${process.env.XAI_API_KEY}`},body:JSON.stringify({model:'grok-4.6',store:false,input:[{role:'system',content:system},{role:'user',content:message}]})});
     const data=await r.json();
     if(!r.ok)return res.status(r.status).json({error:data?.error?.message||'Gagal menghubungi Grok.'});
     const text=data.output_text||data.output?.flatMap(x=>Array.isArray(x.content)?x.content.map(c=>c.text||''):[]).filter(Boolean).join('\n')||'';
