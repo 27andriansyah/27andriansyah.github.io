@@ -19,9 +19,10 @@ export default async function handler(req,res){
     const r=await fetch('https://api.x.ai/v1/responses',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${process.env.XAI_API_KEY}`},body:JSON.stringify({model:'grok-4.6',store:false,input:[{role:'system',content:system},{role:'user',content:message}]})});
     const data=await r.json();
     if(!r.ok){
-      const xaiMessage=String(data?.error?.message||data?.error?.code||'Gagal menghubungi Grok.');
-      console.error('27 Mart Grok upstream:',r.status,xaiMessage);
-      return res.status(502).json({error:`Grok menolak request (${r.status}). ${xaiMessage}`});
+      const raw=String(data?.error?.message||'').trim();
+      if(r.status===403)return res.status(403).json({error:'Grok menolak API key (403). API key xAI perlu memiliki izin untuk endpoint/model yang digunakan.'});
+      if(r.status===401)return res.status(401).json({error:'API key xAI tidak valid atau tidak terbaca oleh Vercel.'});
+      return res.status(r.status).json({error:raw||`Gagal menghubungi Grok (HTTP ${r.status}).`});
     }
     const text=data.output_text||data.output?.flatMap(x=>Array.isArray(x.content)?x.content.map(c=>c.text||''):[]).filter(Boolean).join('\n')||'';
     return res.status(200).json({text:text||'Maaf, Grok belum memberikan jawaban.'});
