@@ -1,22 +1,22 @@
 const PRODUCTS=[
-{id:3,cat:'sayuran',name:'Kentang',desc:'Cocok untuk masakan harian',price:16000,unit:'1 kg',icon:'🥔'},
-{id:1,cat:'sayuran',name:'Bawang Merah',desc:'Segar untuk kebutuhan dapur',price:18000,unit:'500 g',icon:'🧅',badge:'Segar'},
-{id:5,cat:'sembako',name:'Beras Premium',desc:'Beras pulen untuk keluarga',price:78000,unit:'5 kg',icon:'🍚',badge:'Best seller'},
-{id:9,cat:'pulsa',name:'Pulsa Telkomsel',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',badge:'Instan'},
-{id:2,cat:'sayuran',name:'Tomat Merah',desc:'Tomat segar pilihan',price:12000,unit:'500 g',icon:'🍅',badge:'Favorit'},
-{id:4,cat:'sayuran',name:'Cabai Merah',desc:'Pedas segar setiap hari',price:22000,unit:'250 g',icon:'🌶️',badge:'Favorit'},
-{id:6,cat:'sembako',name:'Minyak Goreng',desc:'Kebutuhan dapur sehari-hari',price:19000,unit:'1 L',icon:'🫗'},
-{id:7,cat:'sembako',name:'Gula Pasir',desc:'Gula pasir kemasan',price:18000,unit:'1 kg',icon:'🧂'},
-{id:8,cat:'sembako',name:'Tepung Terigu',desc:'Serbaguna untuk dapur',price:14000,unit:'1 kg',icon:'🌾'},
-{id:10,cat:'pulsa',name:'Pulsa IM3',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱'},
-{id:11,cat:'pulsa',name:'Paket Data Telkomsel',desc:'Paket internet pilihan',price:15000,unit:'5 GB',icon:'📶',badge:'Populer'},
-{id:12,cat:'pulsa',name:'Paket Data XL',desc:'Paket internet pilihan',price:17000,unit:'5 GB',icon:'📶'},
-{id:13,cat:'ewallet',name:'Top Up DANA',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💙',badge:'Populer'},
-{id:14,cat:'ewallet',name:'Top Up GoPay',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💚'},
-{id:15,cat:'ewallet',name:'Top Up OVO',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💜'},
-{id:16,cat:'ppob',name:'Token PLN',desc:'Token listrik prabayar',price:52000,unit:'Rp50.000',icon:'⚡',badge:'Instan'},
-{id:17,cat:'ppob',name:'Tagihan PDAM',desc:'Pembayaran tagihan air',price:5000,unit:'Admin',icon:'💧'},
-{id:18,cat:'ppob',name:'Tagihan BPJS',desc:'Pembayaran iuran',price:5000,unit:'Admin',icon:'🏥'}
+{id:3,cat:'sayuran',name:'Kentang',desc:'Cocok untuk masakan harian',price:16000,unit:'1 kg',icon:'🥔',image:'kentang'},
+{id:1,cat:'sayuran',name:'Bawang Merah',desc:'Segar untuk kebutuhan dapur',price:18000,unit:'500 g',icon:'🧅',badge:'Segar',image:'bawang-merah'},
+{id:5,cat:'sembako',name:'Beras Premium',desc:'Beras pulen untuk keluarga',price:78000,unit:'5 kg',icon:'🍚',badge:'Best seller',image:'beras-premium'},
+{id:9,cat:'pulsa',name:'Pulsa Telkomsel',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',badge:'Instan',image:'pulsa-telkomsel'},
+{id:2,cat:'sayuran',name:'Tomat Merah',desc:'Tomat segar pilihan',price:12000,unit:'500 g',icon:'🍅',badge:'Favorit',image:'tomat'},
+{id:4,cat:'sayuran',name:'Cabai Merah',desc:'Pedas segar setiap hari',price:22000,unit:'250 g',icon:'🌶️',badge:'Favorit',image:'cabai-merah'},
+{id:6,cat:'sembako',name:'Minyak Goreng',desc:'Kebutuhan dapur sehari-hari',price:19000,unit:'1 L',icon:'🫗',image:'minyak-goreng'},
+{id:7,cat:'sembako',name:'Gula Pasir',desc:'Gula pasir kemasan',price:18000,unit:'1 kg',icon:'🧂',image:'gula-pasir'},
+{id:8,cat:'sembako',name:'Tepung Terigu',desc:'Serbaguna untuk dapur',price:14000,unit:'1 kg',icon:'🌾',image:'tepung-terigu'},
+{id:10,cat:'pulsa',name:'Pulsa IM3',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',image:'pulsa-im3'},
+{id:11,cat:'pulsa',name:'Paket Data Telkomsel',desc:'Paket internet pilihan',price:15000,unit:'5 GB',icon:'📶',badge:'Populer',image:'paket-data-telkomsel'},
+{id:12,cat:'pulsa',name:'Paket Data XL',desc:'Paket internet pilihan',price:17000,unit:'5 GB',icon:'📶',image:'paket-data-xl'},
+{id:13,cat:'ewallet',name:'Top Up DANA',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💙',badge:'Populer',image:'top-up-dana'},
+{id:14,cat:'ewallet',name:'Top Up GoPay',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💚',image:'top-up-gopay'},
+{id:15,cat:'ewallet',name:'Top Up OVO',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💜',image:'top-up-ovo'},
+{id:16,cat:'ppob',name:'Token PLN',desc:'Token listrik prabayar',price:52000,unit:'Rp50.000',icon:'⚡',badge:'Instan',image:'token-pln'},
+{id:17,cat:'ppob',name:'Tagihan PDAM',desc:'Pembayaran tagihan air',price:5000,unit:'Admin',icon:'💧',image:'tagihan-pdam'},
+{id:18,cat:'ppob',name:'Tagihan BPJS',desc:'Pembayaran iuran',price:5000,unit:'Admin',icon:'🏥',image:'tagihan-bpjs'}
 ];
 const DIGITAL=new Set(['pulsa','ewallet','ppob']);
 const SEMBAKO=new Set(['sayuran','sembako']);
@@ -26,19 +26,20 @@ function loadCart(){try{return JSON.parse(localStorage.getItem('27mart-cart')||'
 function saveCart(){try{localStorage.setItem('27mart-cart',JSON.stringify(state.cart))}catch{}renderCartCount()}
 function inCategory(p){return state.category==='all'||(state.category==='sembako'&&SEMBAKO.has(p.cat))||(state.category==='digital'&&DIGITAL.has(p.cat))}
 function filtered(){let a=PRODUCTS.filter(p=>inCategory(p)&&(!state.search||`${p.name} ${p.desc} ${p.unit}`.toLowerCase().includes(state.search)));if(state.sort==='cheap')a.sort((x,y)=>x.price-y.price);if(state.sort==='expensive')a.sort((x,y)=>y.price-x.price);if(state.sort==='az')a.sort((x,y)=>x.name.localeCompare(y.name,'id'));return a}
-function render(){const grid=document.querySelector('#productGrid');const a=filtered();grid.innerHTML=a.length?a.map(p=>`<article class="product" data-product="${p.id}"><div class="product-art">${p.badge?`<span class="product-badge">${esc(p.badge)}</span>`:''}<span>${p.icon}</span></div><span class="tag">${label(p.cat)}</span><h3>${esc(p.name)}</h3><p class="desc">${esc(p.desc)} · ${esc(p.unit)}</p><div class="product-bottom"><strong class="price">${rupiah(p.price)}</strong><button class="add" data-add="${p.id}" aria-label="Tambah ${esc(p.name)}">🛒</button></div></article>`).join(''):`<div class="empty">🔎<strong>Produk tidak ditemukan</strong><small>Coba kata kunci atau kategori lain.</small></div>`;grid.querySelectorAll('[data-add]').forEach(b=>b.onclick=e=>{e.stopPropagation();add(Number(b.dataset.add))});grid.querySelectorAll('.product').forEach(c=>c.onclick=()=>openDetail(Number(c.dataset.product)))}
+function art(p,cls='catalog-icon'){return `<svg class="${cls}" viewBox="0 0 120 90" aria-hidden="true"><use href="assets/catalog-icons.svg#${p.image}"></use></svg>`}
+function render(){const grid=document.querySelector('#productGrid');const a=filtered();grid.innerHTML=a.length?a.map(p=>`<article class="product" data-product="${p.id}"><div class="product-art">${p.badge?`<span class="product-badge">${esc(p.badge)}</span>`:''}${art(p)}</div><span class="tag">${label(p.cat)}</span><h3>${esc(p.name)}</h3><p class="desc">${esc(p.desc)} · ${esc(p.unit)}</p><div class="product-bottom"><strong class="price">${rupiah(p.price)}</strong><button class="add" data-add="${p.id}" aria-label="Tambah ${esc(p.name)}">🛒</button></div></article>`).join(''):`<div class="empty">🔎<strong>Produk tidak ditemukan</strong><small>Coba kata kunci atau kategori lain.</small></div>`;grid.querySelectorAll('[data-add]').forEach(b=>b.onclick=e=>{e.stopPropagation();add(Number(b.dataset.add))});grid.querySelectorAll('.product').forEach(c=>c.onclick=()=>openDetail(Number(c.dataset.product)))}
 function label(c){if(SEMBAKO.has(c))return'Sembako';if(DIGITAL.has(c))return'Produk Digital';return'Semua Produk'}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function add(id){const p=PRODUCTS.find(x=>x.id===id),row=state.cart.find(x=>x.id===id);if(!p)return;if(row)row.qty++;else state.cart.push({id,qty:1});saveCart();renderCart();toast(`${p.name} masuk keranjang ✓`);openCart()}
 function change(id,delta){const row=state.cart.find(x=>x.id===id);if(!row)return;row.qty+=delta;if(row.qty<=0)state.cart=state.cart.filter(x=>x.id!==id);saveCart();renderCart()}
 function clearCart(){if(!state.cart.length)return;if(confirm('Kosongkan semua isi keranjang?')){state.cart=[];saveCart();renderCart();toast('Keranjang dikosongkan.')}}
 function renderCartCount(){document.querySelector('#cartCount').textContent=state.cart.reduce((s,x)=>s+x.qty,0)}
-function renderCart(){const host=document.querySelector('#cartItems'),total=state.cart.reduce((s,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);return s+(p?p.price*x.qty:0)},0);document.querySelector('#cartTotal').textContent=rupiah(total);if(!state.cart.length){host.innerHTML='<div class="cart-empty"><span>🛒</span><strong>Keranjang masih kosong</strong><small>Pilih produk untuk mulai belanja.</small></div>';updateCheckoutFields();return}host.innerHTML=state.cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `<div class="cart-row"><div class="mini-art">${p.icon}</div><div class="cart-info"><strong>${esc(p.name)}</strong><small>${rupiah(p.price)} · ${esc(p.unit)}</small><div class="cart-controls"><button type="button" data-minus="${p.id}">−</button><b>${x.qty}</b><button type="button" data-plus="${p.id}">+</button></div></div><div class="cart-price">${rupiah(p.price*x.qty)}</div></div>`}).join('');host.querySelectorAll('[data-minus]').forEach(b=>b.onclick=()=>change(Number(b.dataset.minus),-1));host.querySelectorAll('[data-plus]').forEach(b=>b.onclick=()=>change(Number(b.dataset.plus),1));updateCheckoutFields()}
+function renderCart(){const host=document.querySelector('#cartItems'),total=state.cart.reduce((s,x)=>{const p=PRODUCTS.find(p=>p.id===x.id);return s+(p?p.price*x.qty:0)},0);document.querySelector('#cartTotal').textContent=rupiah(total);if(!state.cart.length){host.innerHTML='<div class="cart-empty"><span>🛒</span><strong>Keranjang masih kosong</strong><small>Pilih produk untuk mulai belanja.</small></div>';updateCheckoutFields();return}host.innerHTML=state.cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `<div class="cart-row"><div class="mini-art">${art(p,'mini-icon')}</div><div class="cart-info"><strong>${esc(p.name)}</strong><small>${rupiah(p.price)} · ${esc(p.unit)}</small><div class="cart-controls"><button type="button" data-minus="${p.id}">−</button><b>${x.qty}</b><button type="button" data-plus="${p.id}">+</button></div></div><div class="cart-price">${rupiah(p.price*x.qty)}</div></div>`}).join('');host.querySelectorAll('[data-minus]').forEach(b=>b.onclick=()=>change(Number(b.dataset.minus),-1));host.querySelectorAll('[data-plus]').forEach(b=>b.onclick=()=>change(Number(b.dataset.plus),1));updateCheckoutFields()}
 function updateCheckoutFields(){const hasDigital=state.cart.some(x=>DIGITAL.has(PRODUCTS.find(p=>p.id===x.id)?.cat));const target=document.querySelector('#targetLabel');if(target)target.classList.toggle('required',hasDigital)}
 function setCategory(c){state.category=c;document.querySelectorAll('.category').forEach(b=>b.classList.toggle('active',b.dataset.category===c));render();document.querySelector('#produk').scrollIntoView({behavior:'smooth',block:'start'})}
 function openCart(){document.querySelector('#cartPanel').classList.add('open');document.querySelector('#overlay').classList.add('open');renderCart()}
 function closeCart(){document.querySelector('#cartPanel').classList.remove('open');document.querySelector('#overlay').classList.remove('open')}
-function openDetail(id){const p=PRODUCTS.find(x=>x.id===id);if(!p)return;const modal=document.querySelector('#productModal'),content=document.querySelector('#modalContent');content.innerHTML=`<div class="modal-art">${p.icon}</div><span class="tag">${label(p.cat)}</span><h2>${esc(p.name)}</h2><p class="modal-desc">${esc(p.desc)}</p><div class="modal-meta"><span>📦 ${esc(p.unit)}</span><strong>${rupiah(p.price)}</strong></div><button class="primary full" id="modalAdd" type="button">Tambah ke Keranjang →</button>`;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.querySelector('#modalAdd').onclick=()=>{add(p.id);closeModal()}}
+function openDetail(id){const p=PRODUCTS.find(x=>x.id===id);if(!p)return;const modal=document.querySelector('#productModal'),content=document.querySelector('#modalContent');content.innerHTML=`<div class="modal-art">${art(p,'detail-icon')}</div><span class="tag">${label(p.cat)}</span><h2>${esc(p.name)}</h2><p class="modal-desc">${esc(p.desc)}</p><div class="modal-meta"><span>📦 ${esc(p.unit)}</span><strong>${rupiah(p.price)}</strong></div><button class="primary full" id="modalAdd" type="button">Tambah ke Keranjang →</button>`;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.querySelector('#modalAdd').onclick=()=>{add(p.id);closeModal()}}
 function closeModal(){const m=document.querySelector('#productModal');m.classList.remove('open');m.setAttribute('aria-hidden','true')}
 function toast(text){const t=document.querySelector('#toast');t.textContent=text;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),1800)}
 function cleanPhone(value){return value.replace(/\D/g,'')}
