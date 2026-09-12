@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087f5b"><meta name="description" content="Pembayaran 27 Mart — QRIS, e-wallet, dan transfer bank.">
+<title>Pembayaran — 27 Mart</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="payment-page">
+<header class="site-header"><div class="container header-top"><a class="brand" href="index.html#top"><span class="brand-mark">27</span><span><strong>27 Mart</strong><small>Belanja & Bayar</small></span></a><a class="back-link" href="index.html#produk">← Kembali belanja</a></div></header>
+<main class="payment-main container">
+  <section class="payment-hero"><span class="eyebrow dark">CHECKOUT · PEMBAYARAN</span><h1>Selesaikan pembayaranmu 💳</h1><p>Pilih metode pembayaran yang paling nyaman. Setelah membayar, kirim konfirmasi melalui WhatsApp agar pesanan segera diproses.</p></section>
+  <div class="payment-layout">
+    <section class="payment-card qris-card"><div class="payment-card-head"><div><span class="payment-kicker">REKOMENDASI</span><h2>Bayar dengan QRIS</h2><p>Scan menggunakan mobile banking atau e-wallet.</p></div><span class="secure">✓ Aman</span></div><div class="qris-frame"><img src="qris.svg" alt="QRIS 27HOME&STORE"><div><strong>27HOME&STORE</strong><span>NMID: ID1026565203241 · A01</span></div></div><div class="pay-steps"><b>1</b><span>Buka aplikasi pembayaran</span><b>2</b><span>Scan QRIS di atas</span><b>3</b><span>Masukkan nominal sesuai total pesanan</span></div></section>
+    <aside class="order-card"><div class="payment-card-head"><div><span class="payment-kicker">RINGKASAN</span><h2>Pesanan</h2></div><span id="orderCount">0 item</span></div><div id="orderItems" class="order-items"></div><div class="order-total"><span>Total</span><strong id="orderTotal">Rp 0</strong></div><div class="customer-summary" id="customerSummary"></div></aside>
+  </div>
+  <section class="methods"><div class="section-title"><span class="eyebrow dark">ALTERNATIF</span><h2>E-Wallet & Transfer Bank</h2><p>Gunakan salah satu tujuan berikut sesuai metode yang dipilih saat checkout.</p></div><div class="method-grid">
+    <article class="method-card"><span class="method-icon">💳</span><div><strong>E-WALLET</strong><h3>0816951127</h3><p>A/N ANDRIANSYAH</p><small>DANA · GoPay · ShopeePay · OVO</small></div><button type="button" class="copy-btn" data-copy="0816951127">Salin</button></article>
+    <article class="method-card"><span class="method-icon">🏦</span><div><strong>BCA</strong><h3>2831248345</h3><p>A/N ANDRIANSYAH</p></div><button type="button" class="copy-btn" data-copy="2831248345">Salin</button></article>
+    <article class="method-card"><span class="method-icon">🏦</span><div><strong>BRI</strong><h3>3468 0101 9824 505</h3><p>A/N ANDRIANSYAH</p></div><button type="button" class="copy-btn" data-copy="3468 0101 9824 505">Salin</button></article>
+    <article class="method-card"><span class="method-icon">🏦</span><div><strong>BNI</strong><h3>2090433137</h3><p>A/N ANDRIANSYAH</p></div><button type="button" class="copy-btn" data-copy="2090433137">Salin</button></article>
+    <article class="method-card"><span class="method-icon">🏦</span><div><strong>MANDIRI</strong><h3>1220015332466</h3><p>A/N ANDRIANSYAH</p></div><button type="button" class="copy-btn" data-copy="1220015332466">Salin</button></article>
+  </div></section>
+  <section class="payment-note"><strong>💡 Penting sebelum membayar</strong><span>Pastikan nominal sesuai total pesanan dan nama tujuan <b>27HOME&STORE</b> untuk QRIS atau <b>ANDRIANSYAH</b> untuk e-wallet/bank. Jangan transfer ke tujuan lain.</span></section>
+  <div class="payment-actions"><a class="secondary light-btn" href="index.html#produk">Tambah / ubah pesanan</a><button class="primary" id="confirmPayment" type="button">Saya sudah bayar → Konfirmasi WhatsApp</button></div>
+</main>
+<footer><div class="container copyright">© 2026 27 Mart · Pembayaran</div></footer>
+<script src="payment.js" defer></script>
+</body></html>
