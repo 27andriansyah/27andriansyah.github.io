@@ -1,22 +1,22 @@
 const PRODUCTS=[
-{id:3,cat:'sayuran',name:'Kentang',desc:'Cocok untuk masakan harian',price:16000,unit:'1 kg',icon:'🥔',image:'kentang'},
-{id:1,cat:'sayuran',name:'Bawang Merah',desc:'Segar untuk kebutuhan dapur',price:18000,unit:'500 g',icon:'🧅',badge:'Segar',image:'bawang-merah'},
-{id:5,cat:'sembako',name:'Beras Premium',desc:'Beras pulen untuk keluarga',price:78000,unit:'5 kg',icon:'🍚',badge:'Best seller',image:'beras-premium'},
-{id:9,cat:'pulsa',name:'Pulsa Telkomsel',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',badge:'Instan',image:'pulsa-telkomsel'},
-{id:2,cat:'sayuran',name:'Tomat Merah',desc:'Tomat segar pilihan',price:12000,unit:'500 g',icon:'🍅',badge:'Favorit',image:'tomat'},
-{id:4,cat:'sayuran',name:'Cabai Merah',desc:'Pedas segar setiap hari',price:22000,unit:'250 g',icon:'🌶️',badge:'Favorit',image:'cabai-merah'},
-{id:6,cat:'sembako',name:'Minyak Goreng',desc:'Kebutuhan dapur sehari-hari',price:19000,unit:'1 L',icon:'🫗',image:'minyak-goreng'},
-{id:7,cat:'sembako',name:'Gula Pasir',desc:'Gula pasir kemasan',price:18000,unit:'1 kg',icon:'🧂',image:'gula-pasir'},
-{id:8,cat:'sembako',name:'Tepung Terigu',desc:'Serbaguna untuk dapur',price:14000,unit:'1 kg',icon:'🌾',image:'tepung-terigu'},
-{id:10,cat:'pulsa',name:'Pulsa IM3',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',image:'pulsa-im3'},
-{id:11,cat:'pulsa',name:'Paket Data Telkomsel',desc:'Paket internet pilihan',price:15000,unit:'5 GB',icon:'📶',badge:'Populer',image:'paket-data-telkomsel'},
-{id:12,cat:'pulsa',name:'Paket Data XL',desc:'Paket internet pilihan',price:17000,unit:'5 GB',icon:'📶',image:'paket-data-xl'},
-{id:13,cat:'ewallet',name:'Top Up DANA',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💙',badge:'Populer',image:'top-up-dana'},
-{id:14,cat:'ewallet',name:'Top Up GoPay',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💚',image:'top-up-gopay'},
-{id:15,cat:'ewallet',name:'Top Up OVO',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💜',image:'top-up-ovo'},
-{id:16,cat:'ppob',name:'Token PLN',desc:'Token listrik prabayar',price:52000,unit:'Rp50.000',icon:'⚡',badge:'Instan',image:'token-pln'},
-{id:17,cat:'ppob',name:'Tagihan PDAM',desc:'Pembayaran tagihan air',price:5000,unit:'Admin',icon:'💧',image:'tagihan-pdam'},
-{id:18,cat:'ppob',name:'Tagihan BPJS',desc:'Pembayaran iuran',price:5000,unit:'Admin',icon:'🏥',image:'tagihan-bpjs'}
+{id:3,cat:'sayuran',name:'Kentang',desc:'Cocok untuk masakan harian',price:16000,unit:'1 kg',icon:'🥔',image:'https://images.pexels.com/photos/4110456/pexels-photo-4110456.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:1,cat:'sayuran',name:'Bawang Merah',desc:'Segar untuk kebutuhan dapur',price:18000,unit:'500 g',icon:'🧅',badge:'Segar',image:'https://images.pexels.com/photos/5847545/pexels-photo-5847545.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:5,cat:'sembako',name:'Beras Premium',desc:'Beras pulen untuk keluarga',price:78000,unit:'5 kg',icon:'🍚',badge:'Best seller',image:'https://images.pexels.com/photos/31555433/pexels-photo-31555433.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:9,cat:'pulsa',name:'Pulsa Telkomsel',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',badge:'Instan',image:'https://cdn.simpleicons.org/telkomsel'},
+{id:2,cat:'sayuran',name:'Tomat Merah',desc:'Tomat segar pilihan',price:12000,unit:'500 g',icon:'🍅',badge:'Favorit',image:'https://images.pexels.com/photos/19852100/pexels-photo-19852100.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:4,cat:'sayuran',name:'Cabai Merah',desc:'Pedas segar setiap hari',price:22000,unit:'250 g',icon:'🌶️',badge:'Favorit',image:'https://images.pexels.com/photos/7720573/pexels-photo-7720573.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:6,cat:'sembako',name:'Minyak Goreng',desc:'Kebutuhan dapur sehari-hari',price:19000,unit:'1 L',icon:'🫗',image:'https://images.pexels.com/photos/6937407/pexels-photo-6937407.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:7,cat:'sembako',name:'Gula Pasir',desc:'Gula pasir kemasan',price:18000,unit:'1 kg',icon:'🧂',image:'https://images.pexels.com/photos/8108043/pexels-photo-8108043.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:8,cat:'sembako',name:'Tepung Terigu',desc:'Serbaguna untuk dapur',price:14000,unit:'1 kg',icon:'🌾',image:'https://images.pexels.com/photos/8107991/pexels-photo-8107991.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:10,cat:'pulsa',name:'Pulsa IM3',desc:'Pulsa reguler cepat',price:12000,unit:'Rp10.000',icon:'📱',image:'https://cdn.simpleicons.org/indosat'},
+{id:11,cat:'pulsa',name:'Paket Data Telkomsel',desc:'Paket internet pilihan',price:15000,unit:'5 GB',icon:'📶',badge:'Populer',image:'https://cdn.simpleicons.org/telkomsel'},
+{id:12,cat:'pulsa',name:'Paket Data XL',desc:'Paket internet pilihan',price:17000,unit:'5 GB',icon:'📶',image:'https://cdn.simpleicons.org/xl'},
+{id:13,cat:'ewallet',name:'Top Up DANA',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💙',badge:'Populer',image:'https://cdn.simpleicons.org/dana'},
+{id:14,cat:'ewallet',name:'Top Up GoPay',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💚',image:'https://cdn.simpleicons.org/gopay'},
+{id:15,cat:'ewallet',name:'Top Up OVO',desc:'Isi saldo e-wallet',price:22000,unit:'Rp20.000',icon:'💜',image:'https://cdn.simpleicons.org/ovo'},
+{id:16,cat:'ppob',name:'Token PLN',desc:'Token listrik prabayar',price:52000,unit:'Rp50.000',icon:'⚡',badge:'Instan',image:'https://cdn.simpleicons.org/pln'},
+{id:17,cat:'ppob',name:'Tagihan PDAM',desc:'Pembayaran tagihan air',price:5000,unit:'Admin',icon:'💧',image:'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=800'},
+{id:18,cat:'ppob',name:'Tagihan BPJS',desc:'Pembayaran iuran',price:5000,unit:'Admin',icon:'🏥',image:'https://cdn.simpleicons.org/bpjs'}
 ];
 const DIGITAL=new Set(['pulsa','ewallet','ppob']);
 const SEMBAKO=new Set(['sayuran','sembako']);
@@ -26,7 +26,7 @@ function loadCart(){try{return JSON.parse(localStorage.getItem('27mart-cart')||'
 function saveCart(){try{localStorage.setItem('27mart-cart',JSON.stringify(state.cart))}catch{}renderCartCount()}
 function inCategory(p){return state.category==='all'||(state.category==='sembako'&&SEMBAKO.has(p.cat))||(state.category==='digital'&&DIGITAL.has(p.cat))}
 function filtered(){let a=PRODUCTS.filter(p=>inCategory(p)&&(!state.search||`${p.name} ${p.desc} ${p.unit}`.toLowerCase().includes(state.search)));if(state.sort==='cheap')a.sort((x,y)=>x.price-y.price);if(state.sort==='expensive')a.sort((x,y)=>y.price-x.price);if(state.sort==='az')a.sort((x,y)=>x.name.localeCompare(y.name,'id'));return a}
-function art(p,cls='catalog-icon'){return `<svg class="${cls}" viewBox="0 0 120 90" aria-hidden="true"><use href="assets/catalog-icons.svg#${p.image}"></use></svg>`}
+function art(p,cls='catalog-icon'){return `<img class="${cls} real-product-photo" src="${p.image}" alt="${esc(p.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/product-kentang.svg'">`}
 function render(){const grid=document.querySelector('#productGrid');const a=filtered();grid.innerHTML=a.length?a.map(p=>`<article class="product" data-product="${p.id}"><div class="product-art">${p.badge?`<span class="product-badge">${esc(p.badge)}</span>`:''}${art(p)}</div><span class="tag">${label(p.cat)}</span><h3>${esc(p.name)}</h3><p class="desc">${esc(p.desc)} · ${esc(p.unit)}</p><div class="product-bottom"><strong class="price">${rupiah(p.price)}</strong><button class="add" data-add="${p.id}" aria-label="Tambah ${esc(p.name)}">🛒</button></div></article>`).join(''):`<div class="empty">🔎<strong>Produk tidak ditemukan</strong><small>Coba kata kunci atau kategori lain.</small></div>`;grid.querySelectorAll('[data-add]').forEach(b=>b.onclick=e=>{e.stopPropagation();add(Number(b.dataset.add))});grid.querySelectorAll('.product').forEach(c=>c.onclick=()=>openDetail(Number(c.dataset.product)))}
 function label(c){if(SEMBAKO.has(c))return'Sembako';if(DIGITAL.has(c))return'Produk Digital';return'Semua Produk'}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
