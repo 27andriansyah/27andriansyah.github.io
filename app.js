@@ -40,6 +40,8 @@ function openDetail(id){const p=PRODUCTS.find(x=>x.id===id);if(!p)return;const m
 function closeModal(){const m=document.querySelector('#productModal');m.classList.remove('open');m.setAttribute('aria-hidden','true')}
 function toast(text){const t=document.querySelector('#toast');t.textContent=text;t.classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>t.classList.remove('show'),1800)}
 function cleanPhone(value){return value.replace(/\D/g,'')}
+function makeOrderId(){const d=new Date();const date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('');const code=Math.random().toString(36).slice(2,6).toUpperCase();return `27M-${date}-${code}`}
+function saveOrder(order){try{const orders=JSON.parse(localStorage.getItem('27mart-orders')||'[]');orders.unshift(order);localStorage.setItem('27mart-orders',JSON.stringify(orders.slice(0,20)))}catch{}}
 function checkout(){
  if(!state.cart.length){toast('Keranjang masih kosong.');return}
  const name=document.querySelector('#customerName').value.trim();
@@ -56,7 +58,8 @@ function checkout(){
  if(hasPhysical&&address.length<8){alert('Isi alamat pengiriman untuk barang fisik.');document.querySelector('#customerAddress').focus();return}
  if(!payment){alert('Pilih metode pembayaran terlebih dahulu.');document.querySelector('#paymentMethod').focus();return}
  const total=state.cart.reduce((s,x)=>s+PRODUCTS.find(p=>p.id===x.id).price*x.qty,0);
- const order={cart:state.cart,name,phone,target,address,note,payment,total,createdAt:new Date().toISOString()};
+ const order={orderId:makeOrderId(),cart:state.cart.map(x=>({...x})),name,phone,target,address,note,payment,total,status:'Menunggu pembayaran',createdAt:new Date().toISOString()};
+ saveOrder(order);
  try{sessionStorage.setItem('27mart-order',JSON.stringify(order))}catch{}
  window.location.href='payment.html';
 }
