@@ -3,6 +3,12 @@
    Other packaged products are resolved lazily from Open Food Facts by product name.
    No generated/generic grocery photo is used here. */
 const MART_REAL_IMAGES={
+  'Bawang Merah':'https://akcdn.detik.net.id/visual/2025/12/23/ilustrasi-bawang-merah-1766483426876_11.jpeg?q=90&w=720',
+  'Bayam':'https://img.mbizmarket.co.id/products/thumbs/800x800/2023/09/23/aa74f05a5497874cfa34faa8eb67ef22.jpg',
+  'Kangkung':'https://parto.id/asset/foto_produk/dkgkg_jpeg_173091589687.jpeg',
+  'Kentang':'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/83/MTA-14250330/dunia_sayur_online_kentang_dieng_1_kg_full01_klwxql7u.jpg',
+  'Cabai Merah':'https://down-id.img.susercontent.com/file/dc00f5ef4ef6bc686052947f17c284b2',
+  'Bawang Putih':'https://cdn.tridge.com/attachment-file/53/bb/45/53bb45ac22e6dd0e9731aa87cfc15d8e8be208dd/health-benefits-of-garlic-2000-482c21fd2d154102a9b7a46ccb34e70a.jpg',
   'Indomie Ayam Bawang':'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/94/MTA-3452755/indomie_indomie-ayam-bawang-mie-instant_full02.jpg',
   'Indomie Kari Ayam':'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/MTA-21626664/indomie_indomie_kari_ayam_72gr_pak_full01_78o1klf.jpg',
   'Indomie Soto Ayam':'https://s3.belanjapasti.com/media/image/indomie-soto-70g-549594.jpg',
@@ -36,6 +42,7 @@ function applyRealPhoto(img){
   const name=img.dataset.productName;
   const direct=directRealPhoto(name);
   if(direct){img.src=direct;img.dataset.realPhoto='1';return}
+  img.removeAttribute('src');
   findOpenFoodFactsPhoto(name).then(src=>{if(src){img.src=src;img.dataset.realPhoto='1'}});
 }
 function scanRealPhotos(root=document){root.querySelectorAll('img.real-product-photo').forEach(img=>applyRealPhoto(img))}
