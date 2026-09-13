@@ -31,62 +31,55 @@ create table if not exists public.order_items (
 alter table public.orders enable row level security;
 alter table public.order_items enable row level security;
 
--- Customers may create an order, but cannot read/update the orders table directly.
 drop policy if exists "public can create orders" on public.orders;
-create policy "public can create orders"
-on public.orders for insert to anon, authenticated
-with check (true);
+create policy "public can create orders" on public.orders for insert to anon, authenticated with check (true);
 
--- Customer order items are accepted only for an order that exists.
 drop policy if exists "public can create order items" on public.order_items;
-create policy "public can create order items"
-on public.order_items for insert to anon, authenticated
-with check (exists (select 1 from public.orders o where o.id = order_id));
+create policy "public can create order items" on public.order_items for insert to anon, authenticated with check (exists (select 1 from public.orders o where o.id = order_id));
 
--- Authenticated admin account can manage orders and items.
 drop policy if exists "authenticated can read orders" on public.orders;
-create policy "authenticated can read orders"
-on public.orders for select to authenticated
-using (true);
+create policy "authenticated can read orders" on public.orders for select to authenticated using (true);
 
 drop policy if exists "authenticated can update orders" on public.orders;
-create policy "authenticated can update orders"
-on public.orders for update to authenticated
-using (true)
-with check (true);
+create policy "authenticated can update orders" on public.orders for update to authenticated using (true) with check (true);
 
 drop policy if exists "authenticated can read order items" on public.order_items;
-create policy "authenticated can read order items"
-on public.order_items for select to authenticated
-using (true);
+create policy "authenticated can read order items" on public.order_items for select to authenticated using (true);
 
--- Safe customer lookup: the browser can ask for one exact order code without
--- receiving the whole orders table.
+-- Secure customer payment confirmation: the public client may confirm only one exact order code.
+create or replace function public.confirm_order_payment(p_order_code text)
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  update public.orders
+  set status='Menunggu verifikasi', paid_at=now()
+  where order_code=trim(p_order_code)
+    and status='Menunggu pembayaran';
+  return found;
+end;
+$$;
+
+grant execute on function public.confirm_order_payment(text) to anon, authenticated;
+
 create or replace function public.get_order_status(p_order_code text)
-returns table (
-  order_code text,
-  customer_name text,
-  total numeric,
-  status text,
-  created_at timestamptz,
-  paid_at timestamptz
-)
+returns table (order_code text, customer_name text, total numeric, status text, created_at timestamptz, paid_at timestamptz)
 language sql
 security definer
 set search_path = public
 as $$
   select o.order_code, o.customer_name, o.total, o.status, o.created_at, o.paid_at
   from public.orders o
-  where o.order_code = p_order_code
+  where o.order_code = trim(p_order_code)
   limit 1;
 $$;
 
 grant execute on function public.get_order_status(text) to anon, authenticated;
 
--- Realtime for the admin dashboard.
 do $$
 begin
   alter publication supabase_realtime add table public.orders;
-exception when duplicate_object then
-  null;
+exception when duplicate_object then null;
 end $$;
