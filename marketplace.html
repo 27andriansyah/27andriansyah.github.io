@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07945f">
+<meta name="description" content="27 Mart Marketplace — sayur, buah, sembako, kebutuhan rumah tangga, dan produk digital.">
+<title>Marketplace — 27 Mart</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets.css">
+<link rel="stylesheet" href="marketplace.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-top">
+    <a class="brand" href="index.html" aria-label="27 Mart Beranda"><span class="brand-mark">27</span><span><strong>27 Mart</strong><small>Belanja Mudah, Hidup Lebih Praktis</small></span></a>
+    <div class="header-actions"><a href="orders.html" class="top-link"><span>📦</span>Pesanan</a><button class="cart-button" id="openCart" type="button" aria-label="Buka keranjang">🛒<b id="cartCount">0</b></button></div>
+  </div>
+  <div class="container search-wrap"><form class="search" id="searchForm"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari sayur, buah, sembako, pulsa, token..." autocomplete="off"><button aria-label="Cari">Cari</button></form></div>
+</header>
+<main id="top" class="container">
+<section class="marketplace-shell">
+  <div class="mp-promo">
+    <div class="mp-promo-main"><span class="eyebrow">🛒 MARKETPLACE 27 MART</span><h2>Belanja segar & kebutuhan harian dalam satu keranjang.</h2><p>Temukan sayur, buah, sembako, kebutuhan rumah tangga, sampai produk digital. Pilih produk, atur jumlah, lalu checkout.</p></div>
+    <div class="mp-promo-side"><strong>🚚 Pengantaran lokal</strong><span>Flat Rp5.000/order untuk area tertentu. Ketersediaan mengikuti alamat dan ketentuan pesanan.</span><br><strong>🏷️ Harga transparan</strong><span>Harga dan satuan ditampilkan langsung di kartu produk.</span></div>
+  </div>
+  <div class="mp-chip-row" data-mp-chips aria-label="Kategori marketplace"></div>
+  <div class="mp-catalog-head"><div><h2 data-mp-head>Semua Produk</h2><p>Pilih produk dan gunakan tombol + untuk memasukkannya ke keranjang.</p></div><span class="mp-count" data-mp-count></span></div>
+  <section class="products-section" id="produk"><div class="product-grid" id="productGrid"></div></section>
+  <div class="mp-note">💡 <b>Catatan:</b> katalog dan harga 27 Mart adalah katalog operasional. Harga supplier dapat berubah; produk digital dapat diproses setelah pembayaran terverifikasi.</div>
+  <button class="mp-floating-cart" data-mp-cart type="button">🛒 Keranjang <b id="mpCartCount">0</b></button>
+</section>
+</main>
+<div class="toast" id="toast" role="status"></div><div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel" aria-label="Keranjang"><div class="cart-head"><div><span class="eyebrow">KERANJANG</span><h2>Keranjang belanja</h2></div><button id="closeCart" class="close-btn" type="button" aria-label="Tutup keranjang">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><div class="checkout-form"><div class="form-title">Data pesanan</div><label>Nama lengkap<input id="customerName" autocomplete="name" placeholder="Nama penerima"></label><label>WhatsApp<input id="customerPhone" inputmode="tel" autocomplete="tel" placeholder="Contoh: 081234567890"></label><label id="targetLabel">Nomor HP / ID pelanggan <small>(produk digital)</small><input id="targetInput" inputmode="numeric" placeholder="Nomor HP / ID pelanggan"></label><label>Alamat pengiriman <small>(wajib untuk barang fisik)</small><textarea id="customerAddress" rows="2" autocomplete="street-address" placeholder="Alamat lengkap pengiriman"></textarea><label>Catatan pesanan <small>(opsional)</small><textarea id="customerNote" rows="2" placeholder="Catatan khusus pesanan"></textarea></label><label>Metode pembayaran<select id="paymentMethod"><option value="">Pilih metode pembayaran</option><option value="COD — Bayar saat diterima">COD — Bayar saat diterima</option><option value="Kurir lokal — Flat Rp5.000/order">Kurir lokal — Flat Rp5.000/order</option><option value="QRIS — 27HOME&STORE">QRIS — 27HOME&STORE</option><option value="DANA — 0816951127 A/N ANDRIANSYAH">DANA — 0816951127</option><option value="GoPay — 0816951127 A/N ANDRIANSYAH">GoPay — 0816951127</option><option value="ShopeePay — 0816951127 A/N ANDRIANSYAH">ShopeePay — 0816951127</option><option value="OVO — 0816951127 A/N ANDRIANSYAH">OVO — 0816951127</option><option value="BCA — 2831248345 A/N ANDRIANSYAH">BCA — 2831248345</option><option value="BRI — 3468 0101 9824 505 A/N ANDRIANSYAH">BRI — 3468 0101 9824 505</option><option value="BNI — 2090433137 A/N ANDRIANSYAH">BNI — 2090433137</option><option value="MANDIRI — 1220015332466 A/N ANDRIANSYAH">MANDIRI — 1220015332466</option></select></label></div><div class="total"><span>Total</span><strong id="cartTotal">Rp 0</strong></div><button id="checkout" class="primary full" type="button">Lanjut ke pembayaran →</button><button id="clearCart" class="clear-cart" type="button">Kosongkan keranjang</button></div></aside>
+<div class="modal" id="productModal" aria-hidden="true"><div class="modal-card"><button class="close-btn" id="closeModal" type="button" aria-label="Tutup">×</button><div id="modalContent"></div></div></div>
+<a class="floating-wa" href="https://wa.me/62816951127" target="_blank" rel="noopener" aria-label="Chat WhatsApp 27 Mart">💬</a>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-client.js"></script><script src="app.js" defer></script><script src="digital-products.js" defer></script><script src="real-product-images.js" defer></script><script src="marketplace.js" defer></script><script src="online-checkout.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{const sync=()=>{const a=document.querySelector('#cartCount'),b=document.querySelector('#mpCartCount');if(a&&b)b.textContent=a.textContent};new MutationObserver(sync).observe(document.body,{subtree:true,childList:true,characterData:true});sync()});</script>
+</body>
+</html>
