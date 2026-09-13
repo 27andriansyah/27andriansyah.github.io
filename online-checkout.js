@@ -1,5 +1,5 @@
 const MART_PRODUCTS=window.MART_PRODUCTS||{};
-const MART_DIGITAL=window.MART_DIGITAL_IDS||new Set([9,10,11,12,13,14,15]);
+const MART_DIGITAL=window.MART_DIGITAL_IDS||new Set([9,10,11,12,13,14,15,16,17,18]);
 const martCleanPhone=v=>String(v||'').replace(/\D/g,'');
 const martOrderCode=()=>{const d=new Date(),date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('');return `27M-${date}-${Math.random().toString(36).slice(2,6).toUpperCase()}`};
 function martLocalSave(order){try{const a=JSON.parse(localStorage.getItem('27mart-orders')||'[]');a.unshift(order);localStorage.setItem('27mart-orders',JSON.stringify(a.slice(0,20)))}catch{}}
