@@ -1,0 +1,54 @@
+'use client'
+
+import Image from 'next/image'
+import { useMemo, useState } from 'react'
+import { Search, ShoppingCart, UserRound, Truck, ShieldCheck, Clock3, X, Minus, Plus, ArrowRight } from 'lucide-react'
+
+type Product = { id:number; name:string; category:string; price:number; oldPrice?:number; unit:string; image:string; emoji:string }
+
+const products: Product[] = [
+  {id:1,name:'Beras Premium 5 kg',category:'Sembako',price:78000,oldPrice:85000,unit:'5 kg',emoji:'🍚',image:'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=700&q=80'},
+  {id:2,name:'Minyak Goreng 2 L',category:'Sembako',price:36000,oldPrice:40000,unit:'2 liter',emoji:'🫗',image:'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&q=80'},
+  {id:3,name:'Gula Pasir 1 kg',category:'Sembako',price:18000,unit:'1 kg',emoji:'🍬',image:'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=700&q=80'},
+  {id:4,name:'Telur Ayam 1 kg',category:'Segar',price:31000,oldPrice:34000,unit:'±15 butir',emoji:'🥚',image:'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80'},
+  {id:5,name:'Pisang Cavendish',category:'Buah',price:24000,unit:'1 sisir',emoji:'🍌',image:'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=700&q=80'},
+  {id:6,name:'Apel Fuji Premium',category:'Buah',price:39000,oldPrice:45000,unit:'1 kg',emoji:'🍎',image:'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=700&q=80'},
+  {id:7,name:'Air Mineral 600 ml',category:'Minuman',price:28000,unit:'1 dus',emoji:'💧',image:'https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=80'},
+  {id:8,name:'Kopi Bubuk Arabika',category:'Minuman',price:32000,unit:'200 g',emoji:'☕',image:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80'},
+  {id:9,name:'Sabun Cuci Piring',category:'Rumah Tangga',price:17000,unit:'680 ml',emoji:'🧼',image:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=700&q=80'},
+  {id:10,name:'Tisu Wajah 2 Ply',category:'Rumah Tangga',price:22000,oldPrice:25000,unit:'900 sheet',emoji:'🧻',image:'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?auto=format&fit=crop&w=700&q=80'},
+  {id:11,name:'Mi Instan Goreng',category:'Sembako',price:34000,unit:'1 dus',emoji:'🍜',image:'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80'},
+  {id:12,name:'Sayur Segar Paket Hemat',category:'Segar',price:25000,oldPrice:30000,unit:'1 paket',emoji:'🥬',image:'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80'}
+]
+
+const categories = ['Semua','Sembako','Segar','Buah','Minuman','Rumah Tangga']
+const rupiah = (n:number) => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n)
+
+export default function Home(){
+  const [category,setCategory]=useState('Semua')
+  const [query,setQuery]=useState('')
+  const [cart,setCart]=useState<Record<number,number>>({})
+  const [checkout,setCheckout]=useState(false)
+  const [notice,setNotice]=useState('')
+  const filtered=useMemo(()=>products.filter(p=>(category==='Semua'||p.category===category)&&p.name.toLowerCase().includes(query.toLowerCase())),[category,query])
+  const count=Object.values(cart).reduce((a,b)=>a+b,0)
+  const total=Object.entries(cart).reduce((sum,[id,q])=>sum+products.find(p=>p.id===Number(id))!.price*q,0)
+  const add=(id:number)=>setCart(c=>({...c,[id]:(c[id]||0)+1}))
+  const change=(id:number,d:number)=>setCart(c=>{const q=(c[id]||0)+d; const n={...c}; if(q<=0) delete n[id]; else n[id]=q; return n})
+
+  const order=()=>{ setNotice('Pesanan siap diproses. Hubungkan Supabase + payment gateway untuk transaksi produksi.'); setCheckout(false) }
+  return <>
+    <div className="top"><div className="container"><span>Belanja harian lebih mudah dari rumah</span><span>Pengiriman area terdekat • Aman & praktis</span></div></div>
+    <header className="header"><div className="container head"><div className="logo">27<span>Mart</span></div><div className="search"><Search size={18}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Cari beras, minyak, buah, kebutuhan rumah..."/></div><div className="actions"><button className="iconBtn" aria-label="Akun"><UserRound size={19}/></button><button className="iconBtn" aria-label="Keranjang" onClick={()=>setCheckout(true)}><ShoppingCart size={19}/>{count>0&&<span className="badge">{count}</span>}</button></div></div></header>
+    <main className="container">
+      <section className="hero"><div className="heroMain"><div className="eyebrow">Marketplace belanja harian</div><h1>Semua kebutuhan rumah, satu tempat.</h1><p>Belanja sembako, produk segar, minuman, dan kebutuhan rumah tangga dengan pengalaman checkout yang cepat dan nyaman.</p><button className="cta" onClick={()=>document.getElementById('produk')?.scrollIntoView()}>Mulai belanja <ArrowRight size={17} style={{marginLeft:7}}/></button></div><div className="heroSide"><h3>Kenapa belanja di sini?</h3><div className="benefit"><Truck size={20}/><div><b>Pengiriman praktis</b><span>Pesanan diproses dengan cepat.</span></div></div><div className="benefit"><ShieldCheck size={20}/><div><b>Checkout aman</b><span>Data pelanggan dijaga dengan baik.</span></div></div><div className="benefit"><Clock3 size={20}/><div><b>Pesan kapan saja</b><span>Marketplace siap digunakan 24/7.</span></div></div></div></section>
+      <section className="section"><div className="sectionHead"><h2>Belanja berdasarkan kategori</h2><span className="muted">Pilih kategori favorit</span></div><div className="chips">{categories.map(c=><button key={c} className={'chip '+(category===c?'active':'')} onClick={()=>setCategory(c)}>{c}</button>)}</div></section>
+      <section className="section" id="produk"><div className="sectionHead"><div><h2>Produk pilihan</h2><span className="muted">Harga transparan • stok siap dikelola admin</span></div><span className="muted">{filtered.length} produk</span></div>{filtered.length?<div className="grid">{filtered.map(p=><article className="card" key={p.id}><div className="pic"><Image src={p.image} alt={p.name} width={700} height={500} sizes="(max-width:640px) 50vw, 25vw"/></div>{p.oldPrice&&<span className="discount">PROMO</span>}<div className="info"><div className="cat">{p.category}</div><div className="name">{p.name}</div><div><span className="price">{rupiah(p.price)}</span>{p.oldPrice&&<span className="old">{rupiah(p.oldPrice)}</span>}</div><div className="unit">{p.unit}</div><button className="add" onClick={()=>{add(p.id);setNotice(`${p.name} ditambahkan ke keranjang`)}}>+ Tambah ke keranjang</button></div></article>)}</div>:<div className="empty">Produk tidak ditemukan. Coba kata kunci atau kategori lain.</div>}</section>
+      <section className="section"><div className="banner"><div><strong>Belanja lebih hemat setiap minggu</strong><p>Promo dapat dikelola langsung dari panel admin marketplace.</p></div><button className="cta" onClick={()=>setCategory('Semua')}>Lihat semua <ArrowRight size={17} style={{marginLeft:7}}/></button></div></section>
+    </main>
+    <footer className="footer"><div className="container footerGrid"><div><h3>27Mart</h3><p>Marketplace belanja harian yang dibangun untuk pengalaman belanja cepat, sederhana, dan dapat berkembang.</p></div><div><h4>Belanja</h4><ul><li>Sembako</li><li>Produk Segar</li><li>Minuman</li><li>Rumah Tangga</li></ul></div><div><h4>Layanan</h4><ul><li>Checkout</li><li>Pesanan</li><li>Pengiriman</li><li>Bantuan</li></ul></div><div><h4>Marketplace</h4><ul><li>Admin</li><li>Promo</li><li>Stok</li><li>Pembayaran</li></ul></div></div></footer>
+    <button className="cart" onClick={()=>setCheckout(true)}><ShoppingCart size={17}/> {count?`${count} item • ${rupiah(total)}`:'Keranjang kosong'}</button>
+    {notice&&<div style={{position:'fixed',left:'50%',bottom:78,transform:'translateX(-50%)',zIndex:40,background:'#14221c',color:'#fff',padding:'12px 16px',borderRadius:12,fontSize:13}}>{notice}<button onClick={()=>setNotice('')} style={{marginLeft:12;background:'none',border:0,color:'#fff'}}>×</button></div>}
+    {checkout&&<div style={{position:'fixed',inset:0,zIndex:50,background:'rgba(0,0,0,.4)'}} onClick={()=>setCheckout(false)}><aside style={{position:'absolute',right:0,top:0,bottom:0,width:'min(440px,100%)',background:'#fff',padding:22,overflow:'auto'}} onClick={e=>e.stopPropagation()}><div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><h2>Keranjang & Checkout</h2><button className="iconBtn" onClick={()=>setCheckout(false)}><X size={18}/></button></div>{count===0?<div className="empty">Keranjang masih kosong.</div>:<>{Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===Number(id))!;return <div key={id} style={{display:'flex',gap:10,padding:'14px 0',borderBottom:'1px solid #e5ebe7'}}><div style={{flex:1}}><b>{p.name}</b><div className="muted">{rupiah(p.price)} × {q}</div></div><div style={{display:'flex',alignItems:'center',gap:8}}><button className="iconBtn" onClick={()=>change(p.id,-1)}><Minus size={15}/></button><b>{q}</b><button className="iconBtn" onClick={()=>change(p.id,1)}><Plus size={15}/></button></div></div>})}<div style={{marginTop:20}}><div style={{display:'flex',justifyContent:'space-between',fontSize:18,fontWeight:800}}><span>Total</span><span>{rupiah(total)}</span></div><button className="cta" style={{width:'100%',justifyContent:'center',background:'#087443',color:'#fff'}} onClick={order}>Lanjutkan checkout</button></div></>}</aside></div>}
+  </>
+}
